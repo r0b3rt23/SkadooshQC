@@ -42,6 +42,7 @@ public class GraphActivity extends AppCompatActivity {
     BroadcastReceiver broadcastReceiver;
     private ArrayList<ListModel> SortPartyList;
 
+
     public static final String URL_COUNT = "http://162.144.86.26/skadoosh_quezon/getCountCity.php";
     public static final String URL_LineCOUNT = "http://162.144.86.26/skadoosh_quezon/getCountLineCity.php";
 
