@@ -40,7 +40,6 @@
         <activity android:name=".BarangayForm" />
         <activity android:name=".PrecinctForm" />
         <activity android:name=".VotersForm" />
-        <activity android:name=".QuestionForm" />
         <activity android:name=".UploadToServer" />
         <activity android:name=".GraphMenu" />
         <activity android:name=".GraphActivity3" />

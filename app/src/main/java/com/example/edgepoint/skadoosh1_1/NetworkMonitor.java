@@ -64,7 +64,7 @@ public class NetworkMonitor extends BroadcastReceiver {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(context, "No Internet Connection!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "No Internet bok", Toast.LENGTH_LONG).show();
 
                         }
                     });
