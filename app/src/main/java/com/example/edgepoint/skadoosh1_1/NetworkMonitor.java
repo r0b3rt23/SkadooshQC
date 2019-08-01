@@ -76,6 +76,7 @@ public class NetworkMonitor extends BroadcastReceiver {
 
         }
         else
+
         {
 //            Toast.makeText(context,"No Internet", Toast.LENGTH_LONG).show();
         }
