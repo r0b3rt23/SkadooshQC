@@ -1,0 +1,324 @@
+<resources>
+    <string name="app_name">skadoosh_qp</string>
+    <string name="search_textview">SEARCH PROFILE</string>
+    <string name="search_info">Voters Name</string>
+    <string name="profile_view">VOTERS PROFILE</string>
+    <string name="submit">SUBMIT</string>
+    <string name="collect_data">COLLECT DATA</string>
+    <string name="view_graphs">View Graphs</string>
+    <string name="view_profile">View Information</string>
+    <string name="barangay_tv">Pumili ng Barangay</string>
+    <string name="precinct_tv">Pumili ng Presinto</string>
+    <string name="votersname_tv">Pumili ng Botante</string>
+    <string name="backbutton">BACK</string>
+    <string name="graph_view">CITY/MUNICIPALITY GRAPH VIEW</string>
+    <string name="generate_graph">GENERATE GRAPH</string>
+    <string name="submit_data">UPLOAD TO SERVER</string>
+    <string name="upload_data">Upload All Data</string>
+    <string name="city_level_graph">CITY/MUNICIPALITY LEVEL GRAPH</string>
+    <string name="barangay_level_graph">BARANGAY LEVEL GRAPH</string>
+    <string name="precinct_level_graph">PRECINCT LEVEL GRAPH</string>
+    <string name="missing_entry">GRAPH with MISSING ENTRY</string>
+    <string name="barangay_graph_view">BARANGAY GRAPH VIEW</string>
+    <string name="precinct_graph_view">PRECINCT GRAPH VIEW</string>
+    <string name="generate_graph_with_missing_entry">Graph With Missing Entry</string>
+    <string name="home">HOME</string>
+    <string name="save">Save</string>
+    <string name="voters_information">Voters Information</string>
+    <string name="list_to_upload">Upload List</string>
+    <string name="manage_data">MANAGE DATA</string>
+    <string name="batch_file">Batch File</string>
+    <string name="download">Download</string>
+    <string name="upload_data_menu">UPLOAD DATA</string>
+    <string name="download_batch_file">NEW BATCH FILE</string>
+    <string name="end_canvassing">END CANVASSING</string>
+    <string name="fullname_canvass">FULL NAME</string>
+    <string name="close_canvassing">Close Canvassing</string>
+    <string name="e_mail_canvass">E-MAIL ADDRESS</string>
+    <string name="send_request">send request</string>
+    <string name="generate_line_chart">GENERATE LINE CHART</string>
+    <string name="download_data_menu">DOWNLOAD DATA</string>
+    <string name="download_file">DOWNLOAD FILE</string>
+    <string name="pumili_ng_municipality_city">PUMILI NG MUNICIPALITY / CITY</string>
+    <dimen name="pagerTitleTextSize">22sp</dimen>
+    <string-array name="graph_column">
+        <item>Congressman</item>
+        <item>Mayor</item>
+        <item>ViceMayor</item>
+        <item>Kagawad</item>
+    </string-array>
+    <string-array name="questions">
+        <item>PUMILI NG CONGRESSMAN ?</item>
+        <item>PUMILI NG MAYOR ?</item>
+        <item>PUMILI NG VICE MAYOR ?</item>
+        <item>PUMILI NG MGA KAGAWAD ?</item>
+    </string-array>
+    <string-array name="choice_congressman">
+        <item>BORDADO, Gabriel</item>
+        <item>ROCO, Sulpicio</item>
+        <item>VILLAFUERTE, Luis</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="choice_mayor">
+        <item>LEGACION, Nelson</item>
+        <item>MENDOZA, Fortunato</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="choice_vicemayor">
+        <item>DE ASIS, Cecilia</item>
+        <item>MIRANDA, Lito</item>
+        <item>RIVA, Felix</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="choice_kagawad">
+        <item>ABONAL, Greg</item>
+        <item>ALBEUS, Jess</item>
+        <item>ARROYO, Mila</item>
+        <item>BALDEMORO, Elmer</item>
+        <item>CASTILLO, Vidal</item>
+        <item>DEL CASTILLO, Badong</item>
+        <item>DEL ROSARIO, Lito</item>
+        <item>LAVADIA, June</item>
+        <item>MACARAIG, Areiz</item>
+        <item>PEREZ, Joe</item>
+        <item>RANOLA, Sonny</item>
+        <item>ROCO, Bernadette</item>
+        <item>ROSALES, Ghiel</item>
+        <item>SAN JUAN, Pedro</item>
+        <item>SERGIO, Nathan</item>
+        <item>TUAZON, Jose</item>
+    </string-array>
+    <!---========================Quezon Province=================================-->
+    <string-array name="graph_district_column">
+        <item>Governor</item>
+        <item>ViceGovernor</item>
+        <item>Congressman</item>
+        <item>BoardMember</item>
+        <item>PartyList</item>
+    </string-array>
+    <string-array name="graph_quezon_column">
+        <item>Governor</item>
+        <item>ViceGovernor</item>
+        <item>Congressman</item>
+        <item>Mayor</item>
+        <item>BoardMember</item>
+        <item>PartyList</item>
+    </string-array>
+    <string-array name="city_municipality">
+        <item>Candelaria</item>
+        <item>Dolores</item>
+        <item>Lucena City</item>
+        <item>San Antonio</item>
+        <item>Sariaya</item>
+        <item>Tiaong</item>
+    </string-array>
+    <string-array name="QuezProv_questions">
+        <item>PUMILI NG GOVERNOR ?</item>
+        <item>PUMILI NG VICE GOVERNOR ?</item>
+        <item>PUMILI NG CONGRESSMAN ?</item>
+        <item>SANGGUNIANG PANLALAWIGAN ?</item>
+        <item>PUMILI NG MAYOR ?</item>
+        <item>PUMILI NG PARTY LIST ?</item>
+        <item>PHONE NUMBER OF VOTER</item>
+    </string-array>
+    <string-array name="QuezProv_ch_governor">
+        <item>ABUY, BENILDA FATIMA</item>
+        <item>ALCALA, KULIT</item>
+        <item>DATOR, SERAFIN</item>
+        <item>PULGAR, SONY</item>
+        <item>SUAREZ, DANNY</item>
+        <item>VILLENA, DING</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_ch_vicegovernor">
+        <item>CAPINA, TEODORICO</item>
+        <item>ESTACIO, GEOFFREY</item>
+        <item>MALITE, ARCIE</item>
+        <item>NANTES, SAM</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_ch_2ndcongressman">
+        <item>ALCALA, PROCY</item>
+        <item>MASILANG, BOYET</item>
+        <item>SENERES, CHRISTIAN</item>
+        <item>SUAREZ, AMADEO</item>
+        <item>SUAREZ, DAVID</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_lucena_ch_mayor">
+        <item>ALCALA, DONDON</item>
+        <item>TALAGA, MON</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_sariaya_ch_mayor">
+        <item>DE LA ROCA, JUN</item>
+        <item>GAYETA, MARCENG</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_candelaria_ch_mayor">
+        <item>BOONGALING, MACKY</item>
+        <item>MALIWANAG, BONG</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_tiaong_ch_mayor">
+        <item>CASTILLO, ROMANO</item>
+        <item>PREZA, RAMON</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_dolores_ch_mayor">
+        <item>CALAYAG, ORLAN</item>
+        <item>MILAN, JR</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_sanantonio_ch_mayor">
+        <item>HERNANDEZ, RODANTE</item>
+        <item>WAGAN, ERICK</item>
+        <item>Undecided</item>
+    </string-array>
+    <string-array name="QuezProv_ch_bokal">
+        <item>ALCALA, EMING</item>
+        <item>ALEJANDRINO, BOYET</item>
+        <item>CASULLA, ROGER</item>
+        <item>GONZALES, TEDDY</item>
+        <item>LIWANAG, YNA</item>
+        <item>SIO, BETH</item>
+        <item>TALAGA, MANO</item>
+        <item>TANADA, MICHAEL</item>
+    </string-array>
+    <string-array name="Party_list">
+        <item>BAYAN MUNA</item>
+        <item>KABAYAN</item>
+        <item>MAGSASAKA</item>
+        <item>PEACE</item>
+        <item>KONTRA BROWNOUT</item>
+        <item>OFW FAMILY</item>
+        <item>1-UTAK</item>
+        <item>KUSUG TAUSUG</item>
+        <item>GLOBAL</item>
+        <item>ANG NARS</item>
+        <item>ANAKPAWIS</item>
+        <item>CWS</item>
+        <item>PTA</item>
+        <item>RAM</item>
+        <item>DUMPER PTDA</item>
+        <item>LUNTIAN</item>
+        <item>AKO BISDAK</item>
+        <item>ASEAN</item>
+        <item>APEC</item>
+        <item>PBA</item>
+        <item>AMEPA OFW</item>
+        <item>BAHAY</item>
+        <item>PRAI</item>
+        <item>JUAN MOVEMENT</item>
+        <item>BUKLOD FILIPINO</item>
+        <item>CIBAC</item>
+        <item>MURANG KURYENTE</item>
+        <item>ANGKLA</item>
+        <item>GABRIELA</item>
+        <item>AKO AN BISAYA</item>
+        <item>1-LAMBAT</item>
+        <item>AN WARAY</item>
+        <item>SULONG DIGNIDAD</item>
+        <item>ALL-FISH</item>
+        <item>ANAKALUSUGAN</item>
+        <item>TGP</item>
+        <item>ABEKA</item>
+        <item>AKMA-PTM</item>
+        <item>ABS</item>
+        <item>BH (BAGONG HENERASYON)</item>
+        <item>ANG PROBINSYANO</item>
+        <item>PM</item>
+        <item>ANAC-IP</item>
+        <item>SINAG</item>
+        <item>PATROL</item>
+        <item>KOOP-KAMPI</item>
+        <item>UNIDO</item>
+        <item>SBP</item>
+        <item>PPP</item>
+        <item>INANG MAHAL</item>
+        <item>1-ANG EDUKASYON</item>
+        <item>KAMAIS</item>
+        <item>ALIF</item>
+        <item>MATA</item>
+        <item>LPGMA</item>
+        <item>ABONO</item>
+        <item>AKO</item>
+        <item>ABANTE PILIPINAS</item>
+        <item>MARINO</item>
+        <item>TAO MUNA</item>
+        <item>ACT TEACHERS</item>
+        <item>PEOPLES CHAMP</item>
+        <item>ALAY BUHAY </item>
+        <item>BUHAY</item>
+        <item>AKBAYAN</item>
+        <item>PARTIDO SANDUGO</item>
+        <item>PROBINSYANO AKO</item>
+        <item>AKO BISAYA</item>
+        <item>AVE</item>
+        <item>METRO</item>
+        <item>AASENSO</item>
+        <item>ALONA</item>
+        <item>TRICAP</item>
+        <item>BANAT</item>
+        <item>TINGOG SINIRANGAN</item>
+        <item>MANILA TEACHERS</item>
+        <item>ACT-CIS</item>
+        <item>APPEND</item>
+        <item>CONSLA</item>
+        <item>KMM</item>
+        <item>ABAKADA</item>
+        <item>KALINGA</item>
+        <item>MARVELOUS TAYO</item>
+        <item>AAMBIS-OWA</item>
+        <item>TINDERONG PINOY</item>
+        <item>AGRI</item>
+        <item>AGAP</item>
+        <item>ACTS-OFW</item>
+        <item>FICTAP</item>
+        <item>SAMAKO</item>
+        <item>1PACMAN</item>
+        <item>ABAMIN</item>
+        <item>PLM</item>
+        <item>AWAKE</item>
+        <item>SENIOR CITIZENS</item>
+        <item>A TEACHER</item>
+        <item>GP</item>
+        <item>1-APTO</item>
+        <item>1-AHAPO</item>
+        <item>ANG KABUHAYAN</item>
+        <item>YACAP</item>
+        <item>MAGDALO</item>
+        <item>ANUPA</item>
+        <item>1-CARE</item>
+        <item>AKO BICOL</item>
+        <item>COOP-NATCCO</item>
+        <item>MAYPAGASA</item>
+        <item>ATING KOOP</item>
+        <item>ALENG ENTREP</item>
+        <item>AANGAT TAYO</item>
+        <item>KABALIKAT</item>
+        <item>BHW</item>
+        <item>RECOBODA</item>
+        <item>AKO PADAYON</item>
+        <item>AMIN</item>
+        <item>ITO ANG TAMA</item>
+        <item>1 UTAP BICOL</item>
+        <item>DUTERTE YOUTH</item>
+        <item>BUTIL</item>
+        <item>ABANG LINGKOD</item>
+        <item>AGBIAG</item>
+        <item>TUCP</item>
+        <item>FFP</item>
+        <item>WOW PILIPINAS</item>
+        <item>SAGIP</item>
+        <item>DIWA</item>
+        <item>PHILRECA</item>
+        <item>1P</item>
+        <item>PBB</item>
+        <item>LAANG KAWAL</item>
+        <item>1AAAP</item>
+        <item>GRECON</item>
+        <item>AA-KASOSYO PARTY</item>
+    </string-array>
+
+</resources>
