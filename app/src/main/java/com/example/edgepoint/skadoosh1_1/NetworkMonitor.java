@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class NetworkMonitor extends BroadcastReceiver {
 
-    private static final String URL = "http://162.144.86.26/skadoosh_quezon/login.php";
+    private static final String URL = "http://www.ramores.com/rema/php_skadoosh/login.php";
     @Override
     public void onReceive(final Context context, Intent intent) {
 
@@ -51,20 +51,20 @@ public class NetworkMonitor extends BroadcastReceiver {
                                     boolean submitUpdate = databaseLoginSubmit.updateLogin(id_json,username_json,password_json);
                                     databaseLoginSubmit.close();
                                     if(submitUpdate == false) {
-                                        Toast.makeText(context,"error!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context,"error! 1", Toast.LENGTH_LONG).show();
                                     }
                                 }
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(context,"error!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context,"error! 2", Toast.LENGTH_LONG).show();
                             }
                         }
                     },
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(context, "No Internet bok", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "No Internet Connection...", Toast.LENGTH_LONG).show();
 
                         }
                     });

@@ -97,6 +97,14 @@ public class DatabaseAccess {
         return userAccess;
     }
 
+    public boolean resetUserAccess(){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("user_access","");
+        database.update("access_table", contentValues, "id=?",new String[] {"1"});
+        database.close();
+        return true;
+    }
+
     public int graphlevelcount(String username,String password, String table) {
         int count = 0;
         Cursor cursor = database.query(table, columnsLogin , "username=? AND password=?",new String[] {username,password}, null, null, null, null);
@@ -617,6 +625,7 @@ public class DatabaseAccess {
         database.close();
         return true;
     }
+
     public boolean deleteRestore(String VoterN){
         database.delete(upload_table,"VotersName=?",new String[]{VoterN});
         database.close();

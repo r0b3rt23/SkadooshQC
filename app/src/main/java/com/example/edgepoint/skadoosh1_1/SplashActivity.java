@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 public class SplashActivity extends Activity {
 
@@ -21,9 +22,34 @@ public class SplashActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,Login_Activity.class);
-                startActivity(intent);
-                finish();
+                DatabaseAccess databaseUserAccess = DatabaseAccess.getInstance(SplashActivity.this,"voters.db");
+                databaseUserAccess.open();
+                String getUserAccess = databaseUserAccess.getUserAccess();
+
+
+                if (getUserAccess.isEmpty()) {
+                    Intent intent = new Intent(SplashActivity.this, Login_Activity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    boolean UserAccess = databaseUserAccess.userAccess(getUserAccess);
+
+                    if (UserAccess == true){
+                        if (getUserAccess.equals("skadoosh")) {
+                            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            Intent intent = new Intent(SplashActivity.this, Main2Activity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                    else {
+                        Toast.makeText(SplashActivity.this,"Invalid Username or Password!", Toast.LENGTH_LONG).show();
+                    }
+                }
+                databaseUserAccess.close();
             }
         },8000);
     }

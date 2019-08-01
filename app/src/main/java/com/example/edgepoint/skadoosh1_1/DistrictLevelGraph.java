@@ -42,8 +42,8 @@ public class DistrictLevelGraph extends AppCompatActivity {
     BroadcastReceiver broadcastReceiver;
     private ArrayList<ListModel> SortPartyList;
 
-    public static final String URL_COUNT = "http://162.144.86.26/skadoosh_quezon/getCountDistrict.php";
-    public static final String URL_LineCOUNT = "http://162.144.86.26/skadoosh_quezon/getCountLineDistrict.php";
+    public static final String URL_COUNT = "http://ramores.com/rema/php_skadoosh/getCountDistrict.php";
+    public static final String URL_LineCOUNT = "http://ramores.com/rema/php_skadoosh/getCountLineDistrict.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

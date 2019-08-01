@@ -39,8 +39,8 @@ import java.util.Map;
 public class DownloadFromServer extends AppCompatActivity {
 
     Button buttonDownload;
-    private static final String URL_DATABASE = "http://162.144.86.26/skadoosh_quezon/getDatabase.php";
-    private static final String URL_DATE = "http://162.144.86.26/skadoosh_quezon/getUpdatedDate.php";
+    private static final String URL_DATABASE = "http://ramores.com/rema/php_skadoosh/getDatabase.php";
+    private static final String URL_DATE = "http://ramores.com/rema/php_skadoosh/getUpdatedDate.php";
     private BroadcastReceiver broadcastReceiver;
     ArrayAdapter<String> adapterDownloadList;
     ListView DownloadList;

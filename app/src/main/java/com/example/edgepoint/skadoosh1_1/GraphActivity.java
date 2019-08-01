@@ -43,8 +43,8 @@ public class GraphActivity extends AppCompatActivity {
     private ArrayList<ListModel> SortPartyList;
 
 
-    public static final String URL_COUNT = "http://162.144.86.26/skadoosh_quezon/getCountCity.php";
-    public static final String URL_LineCOUNT = "http://162.144.86.26/skadoosh_quezon/getCountLineCity.php";
+    public static final String URL_COUNT = "http://ramores.com/rema/php_skadoosh/getCountCity.php";
+    public static final String URL_LineCOUNT = "http://ramores.com/rema/php_skadoosh/getCountLineCity.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

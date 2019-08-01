@@ -58,9 +58,16 @@ public class MainActivity extends AppCompatActivity {
                         String ch_menu = menuItem.getTitle().toString();
 
                         if (ch_menu.equals("Logout")) {
-                            Intent intent = new Intent(MainActivity.this, Login_Activity.class);
-                            startActivity(intent);
-                            finish();
+                            DatabaseAccess databaseUserAccess = DatabaseAccess.getInstance(MainActivity.this,"voters.db");
+                            databaseUserAccess.open();
+                            boolean resetUserAccess = databaseUserAccess.resetUserAccess();
+                            databaseUserAccess.close();
+
+                            if (resetUserAccess == true) {
+                                Intent intent = new Intent(MainActivity.this, Login_Activity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                         else if (ch_menu.equals("Reset All Data")){
                             showDialog();

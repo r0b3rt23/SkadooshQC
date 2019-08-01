@@ -45,7 +45,7 @@ import java.util.Map;
 
 public class UploadToServer extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String URL_SAVE_NAME = "http://162.144.86.26/skadoosh_quezon/saveName.php";
+    public static final String URL_SAVE_NAME = "http://ramores.com/rema/php_skadoosh/saveName.php";
 
     //View objects
     private Button buttonSave;

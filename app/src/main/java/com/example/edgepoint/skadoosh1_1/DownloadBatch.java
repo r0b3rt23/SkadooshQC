@@ -32,7 +32,7 @@ import java.util.List;
 
 public class DownloadBatch extends AppCompatActivity {
     Button buttonDownload;
-    private static final String URL_DATABASE = "http://162.144.86.26/skadoosh_quezon/getBatch.php";
+    private static final String URL_DATABASE = "http://ramores.com/rema/php_skadoosh/getBatch.php";
     private BroadcastReceiver broadcastReceiver;
     ArrayAdapter<String> adapterBatchList;
     ListView BatchList;

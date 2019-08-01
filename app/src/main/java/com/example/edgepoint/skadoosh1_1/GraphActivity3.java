@@ -49,8 +49,8 @@ public class GraphActivity3 extends AppCompatActivity {
     ProgressDialog progressDialog,loading;
     BroadcastReceiver broadcastReceiver;
 
-    public static final String URL_COUNT = "http://162.144.86.26/skadoosh_quezon/getCountPrecinct.php";
-    public static final String URL_LineCOUNT = "http://162.144.86.26/skadoosh_quezon/getCountLinePrecinct.php";
+    public static final String URL_COUNT = "http://ramores.com/rema/php_skadoosh/getCountPrecinct.php";
+    public static final String URL_LineCOUNT = "http://ramores.com/rema/php_skadoosh/getCountLinePrecinct.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
