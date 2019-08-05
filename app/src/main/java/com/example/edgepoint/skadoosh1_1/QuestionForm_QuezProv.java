@@ -256,7 +256,6 @@ public class QuestionForm_QuezProv extends AppCompatActivity {
             choiceMayor = choiceStAntonioMayor;
         }
 
-
 //        String str_kgwd = "";
 //        for (int i = 3; i < choiceBokal.length; i++) {
 //            Boolean kgwd = Boolean.valueOf( ListArr[i]);
@@ -361,6 +360,7 @@ public class QuestionForm_QuezProv extends AppCompatActivity {
                 }
                 mLinearLayout.addView(rgroup_congressman);
             }
+
             else if (k == 3){
                 rcheck_bokal = new AppCompatCheckBox[choiceBokal.length];
                 int y = k+1;

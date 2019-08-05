@@ -6,9 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -20,6 +18,7 @@
         android:roundIcon="@mipmap/skadoosh"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".QuestionForm_new"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
@@ -29,13 +28,12 @@
             </intent-filter>
         </activity>
 
-         <receiver android:name=".NetworkMonitor">
-         <intent-filter>
-         <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-         <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-         </intent-filter>
-         </receiver>
-         <!--<activity android:name=".NetworkMonitor" /> -->
+        <receiver android:name=".NetworkMonitor">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver> <!-- <activity android:name=".NetworkMonitor" /> -->
         <activity android:name=".SearchProfileActivity" />
         <activity android:name=".BarangayForm" />
         <activity android:name=".PrecinctForm" />
@@ -70,7 +68,7 @@
             android:name=".LineGraph"
             android:screenOrientation="landscape" />
         <activity android:name=".Login_Activity" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
     </application>
 
 </manifest>
