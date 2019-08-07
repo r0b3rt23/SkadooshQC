@@ -128,14 +128,14 @@
         <item>PULGAR, SONY</item>
         <item>SUAREZ, DANNY</item>
         <item>VILLENA, DING</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_ch_vicegovernor">
         <item>CAPINA, TEODORICO</item>
         <item>ESTACIO, GEOFFREY</item>
         <item>MALITE, ARCIE</item>
         <item>NANTES, SAM</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_ch_2ndcongressman">
         <item>ALCALA, PROCY</item>
@@ -143,17 +143,17 @@
         <item>SENERES, CHRISTIAN</item>
         <item>SUAREZ, AMADEO</item>
         <item>SUAREZ, DAVID</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_lucena_ch_mayor">
         <item>ALCALA, DONDON</item>
         <item>TALAGA, MON</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_sariaya_ch_mayor">
         <item>DE LA ROCA, JUN</item>
         <item>GAYETA, MARCENG</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_candelaria_ch_mayor">
         <item>BOONGALING, MACKY</item>
@@ -163,17 +163,17 @@
     <string-array name="QuezProv_tiaong_ch_mayor">
         <item>CASTILLO, ROMANO</item>
         <item>PREZA, RAMON</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_dolores_ch_mayor">
         <item>CALAYAG, ORLAN</item>
         <item>MILAN, JR</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_sanantonio_ch_mayor">
         <item>HERNANDEZ, RODANTE</item>
         <item>WAGAN, ERICK</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_ch_bokal">
         <item>ALCALA, EMING</item>
@@ -319,6 +319,24 @@
         <item>1AAAP</item>
         <item>GRECON</item>
         <item>AA-KASOSYO PARTY</item>
+    </string-array>
+    <string-array name="Highest_education">
+        <item>Elementary level</item>
+        <item>Elementary graduate</item>
+        <item>High Schoool level</item>
+        <item>High Schoool graduate</item>
+        <item>College level</item>
+        <item>College graduate</item>
+        <item>Post graduate</item>
+    </string-array>
+    <string-array name="Annual_income">
+        <item>Less than 94,680 (7,890 monthly or less)</item>
+        <item>94,680 to 189,360 (7,891 to 15,780 moly)</item>
+        <item>189,361 to 378,720 (15,781 to 31,560 moly)</item>
+        <item>378,721 to 946,800 (31,561 to 78,900 moly)</item>
+        <item>946,801 to 1,420,200 (78,901 to 118,350 moly)</item>
+        <item>1,420,201 to 189,360 (118,351 to 157,800)</item>
+        <item>More than 189,360 (157,801 and more)</item>
     </string-array>
 
 </resources>

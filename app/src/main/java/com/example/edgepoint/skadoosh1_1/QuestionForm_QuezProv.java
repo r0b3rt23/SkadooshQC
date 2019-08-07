@@ -14,6 +14,7 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.text.InputType;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -54,6 +55,7 @@ public class QuestionForm_QuezProv extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_form__quez_prov);
+
 
         Intent intent = getIntent();
 

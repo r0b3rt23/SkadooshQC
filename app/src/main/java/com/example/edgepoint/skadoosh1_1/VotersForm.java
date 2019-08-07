@@ -92,7 +92,7 @@ public class VotersForm extends Activity implements View.OnClickListener  {
 
                 form = new Form(city_form,barangay_form,precinct_form,voters_form);
 
-                Intent intent = new Intent(VotersForm.this, QuestionForm_QuezProv.class);
+                Intent intent = new Intent(VotersForm.this, QuestionForm_new.class);
                 intent.putExtra("Form",form);
                 startActivity(intent);
 
