@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/skadoosh"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".QuestionForm_new"></activity>
+        <activity android:name=".NewRegister"></activity>
+        <activity android:name=".CollectData" />
+        <activity android:name=".QuestionForm_new" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

@@ -526,43 +526,43 @@ public class QuestionForm_QuezProv extends AppCompatActivity {
                                  String gonzalesBokal,String liwanagBokal,String sioBokal,String talagaBokal,String tanadaBokal,String indicator_on_off,String deceased_yes_no,
                                  String partylist,String encodername,String contact){
 
-        DatabaseAccess databaseAccessSubmit = DatabaseAccess.getInstance(QuestionForm_QuezProv.this,"voters.db");
-        databaseAccessSubmit.open();
-
-        boolean checkDuplicate = databaseAccessSubmit.checkDuplicateUpload(votersname_form);
-
-        if(checkDuplicate == true){
-            boolean submitUpdate = databaseAccessSubmit.updateData(voters,governor,vicegovernor,congressman,mayor,alcalaBokal,alejandrinoBokal,casullaBokal,
-                    gonzalesBokal,liwanagBokal,sioBokal,talagaBokal,tanadaBokal,indicator_on_off,deceased_yes_no,partylist,encodername,contact);
-
-
-            if(submitUpdate == true) {
-                Toast.makeText(QuestionForm_QuezProv.this,"Data Saved.",Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-                finish();
-            }
-            else {
-                Toast.makeText(QuestionForm_QuezProv.this, "Data not Save", Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-            }
-        }
-        else {
-            boolean submitInsert= databaseAccessSubmit.insertOnConflictData(voters,governor,vicegovernor,congressman,mayor,alcalaBokal,alejandrinoBokal,
-                    casullaBokal,gonzalesBokal,liwanagBokal,sioBokal,talagaBokal,tanadaBokal,indicator_on_off,deceased_yes_no,partylist,encodername,contact);
-
-
-            if(submitInsert == true) {
-                Toast.makeText(QuestionForm_QuezProv.this,"Data Saved.",Toast.LENGTH_LONG).show();
-                finish();
-                progressDialog.dismiss();
-            }
-            else {
-                Toast.makeText(QuestionForm_QuezProv.this, "Data not Submitted", Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-            }
-        }
-
-        databaseAccessSubmit.close();
+//        DatabaseAccess databaseAccessSubmit = DatabaseAccess.getInstance(QuestionForm_QuezProv.this,"voters.db");
+//        databaseAccessSubmit.open();
+//
+//        boolean checkDuplicate = databaseAccessSubmit.checkDuplicateUpload(votersname_form);
+//
+//        if(checkDuplicate == true){
+//            boolean submitUpdate = databaseAccessSubmit.updateData(voters,governor,vicegovernor,congressman,mayor,alcalaBokal,alejandrinoBokal,casullaBokal,
+//                    gonzalesBokal,liwanagBokal,sioBokal,talagaBokal,tanadaBokal,indicator_on_off,deceased_yes_no,partylist,encodername,contact);
+//
+//
+//            if(submitUpdate == true) {
+//                Toast.makeText(QuestionForm_QuezProv.this,"Data Saved.",Toast.LENGTH_LONG).show();
+//                progressDialog.dismiss();
+//                finish();
+//            }
+//            else {
+//                Toast.makeText(QuestionForm_QuezProv.this, "Data not Save", Toast.LENGTH_LONG).show();
+//                progressDialog.dismiss();
+//            }
+//        }
+//        else {
+//            boolean submitInsert= databaseAccessSubmit.insertOnConflictData(voters,governor,vicegovernor,congressman,mayor,alcalaBokal,alejandrinoBokal,
+//                    casullaBokal,gonzalesBokal,liwanagBokal,sioBokal,talagaBokal,tanadaBokal,indicator_on_off,deceased_yes_no,partylist,encodername,contact);
+//
+//
+//            if(submitInsert == true) {
+//                Toast.makeText(QuestionForm_QuezProv.this,"Data Saved.",Toast.LENGTH_LONG).show();
+//                finish();
+//                progressDialog.dismiss();
+//            }
+//            else {
+//                Toast.makeText(QuestionForm_QuezProv.this, "Data not Submitted", Toast.LENGTH_LONG).show();
+//                progressDialog.dismiss();
+//            }
+//        }
+//
+//        databaseAccessSubmit.close();
     }
 
     public void form4PrevButton(){

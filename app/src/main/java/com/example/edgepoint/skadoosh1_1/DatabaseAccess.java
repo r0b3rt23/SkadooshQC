@@ -371,7 +371,8 @@ public class DatabaseAccess {
 
     public boolean insertOnConflictData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
                                         String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
-                                        String PartyList, String Encoder, String Contact) {
+                                        String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
+                                        String Education, String Income) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
         contentValues.put("Governor",Governor);
@@ -391,6 +392,12 @@ public class DatabaseAccess {
         contentValues.put("PartyList",PartyList);
         contentValues.put("Encoder",Encoder);
         contentValues.put("Contact",Contact);
+        contentValues.put("VotersAddress",VotersAddress);
+        contentValues.put("Birthday",Birthday);
+        contentValues.put("Age",Age);
+        contentValues.put("Email",Email);
+        contentValues.put("Education",Education);
+        contentValues.put("Income",Income);
         database.update(voters_table, contentValues, "VotersName=?",new String[] {votersname});
         database.insertWithOnConflict(upload_table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         return true;
@@ -398,7 +405,8 @@ public class DatabaseAccess {
 
     public boolean updateData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
                               String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
-                              String PartyList, String Encoder, String Contact) {
+                              String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
+                              String Education, String Income) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
         contentValues.put("Governor",Governor);
@@ -418,6 +426,12 @@ public class DatabaseAccess {
         contentValues.put("PartyList",PartyList);
         contentValues.put("Encoder",Encoder);
         contentValues.put("Contact",Contact);
+        contentValues.put("VotersAddress",VotersAddress);
+        contentValues.put("Birthday",Birthday);
+        contentValues.put("Age",Age);
+        contentValues.put("Email",Email);
+        contentValues.put("Education",Education);
+        contentValues.put("Income",Income);
             database.update(voters_table, contentValues, "VotersName=?",new String[] {votersname});
             database.update(upload_table, contentValues, "VotersName=?",new String[] {votersname});
         return true;

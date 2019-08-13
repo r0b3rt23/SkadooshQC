@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonClick(View v) {
         if (v.getId() == R.id.Bfillform) {
-            Intent i = new Intent(MainActivity.this, CityForm.class);
+            Intent i = new Intent(MainActivity.this, CollectData.class);
             startActivity(i);
         }
 
