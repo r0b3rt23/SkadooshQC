@@ -25,6 +25,7 @@ public class CityForm  extends Activity implements View.OnClickListener {
     ListView cityList;
     Form form;
     ProgressDialog progressDialog;
+    String RegisteredChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class CityForm  extends Activity implements View.OnClickListener {
                 homeButton ();
     }
     private void cityForm(){
+        Intent intent = getIntent();
+        RegisteredChoice = intent.getStringExtra("RegisteredChoice");
 
         String[] cityArr = getResources().getStringArray(R.array.city_municipality);
 
@@ -52,6 +55,7 @@ public class CityForm  extends Activity implements View.OnClickListener {
 
                 Intent intent = new Intent(CityForm.this, BarangayForm.class);
                 intent.putExtra("Form",form);
+                intent.putExtra("RegisteredChoice",RegisteredChoice);
                 startActivity(intent);
 
             }

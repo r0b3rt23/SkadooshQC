@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/vname_tv_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/qp_submit_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vname_tv_id">
+
+        <LinearLayout
+            android:id="@+id/qp_linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="CONSTITUENTS’ PROFILE"
+                android:textColor="#9C27B0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="10dp"
+                android:background="#673AB7" />
+
+            <TextView
+                android:id="@+id/address_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/address_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Address"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/bday_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Birthday"
+                        android:textAllCaps="true"
+                        android:textColor="#FF0099CC"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/birthday_textView_id"
+                        android:gravity="center_vertical"
+                        android:text="Select Date of Birth"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/age_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="AGE"
+                        android:textAllCaps="true"
+                        android:textColor="#FF0099CC"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/age_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Age"
+                        android:inputType="number" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mobile_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mobile No."
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/mobile_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Phone No."
+                android:inputType="phone" />
+
+            <TextView
+                android:id="@+id/email_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/education_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Highest education"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/educ_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <TextView
+                android:id="@+id/annual_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Annual income group (HH)"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/income_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/Title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="VOTER PREFERENCE"
+                android:textColor="#9C27B0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="10dp"
+                android:background="#673AB7" />
+
+            <TextView
+                android:id="@+id/gov_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Governor"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/gov_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <TextView
+                android:id="@+id/vgov_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vice Governor"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/vgov_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <TextView
+                android:id="@+id/cong_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Congressman"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/cong_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <TextView
+                android:id="@+id/bokal_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sangguniang Panlalawigan"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayout_bokal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <!--<Spinner-->
+            <!--android:id="@+id/bokal_spinner"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:background="@android:drawable/dialog_holo_light_frame" />-->
+
+            <TextView
+                android:id="@+id/mayor_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mayor"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/mayor_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <TextView
+                android:id="@+id/partylist_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Party List"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/partylist_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="1"
+                android:hint="Enter a party list" />
+
+            <TextView
+                android:id="@+id/Title3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="SERBISYONG SUAREZ"
+                android:textColor="#9C27B0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="10dp"
+                android:background="#673AB7" />
+
+            <TextView
+                android:id="@+id/Serbisyo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Education / scholarship"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/php_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <EditText
+                    android:id="@+id/php1_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year1_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Year/s Received : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/year1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/Serbisyo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Medical assistance"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/php2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <EditText
+                    android:id="@+id/php2_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year2_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Year/s Received : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/year2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/Serbisyo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Agriculture"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/php3_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <EditText
+                    android:id="@+id/php3_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year3_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Year/s Received : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/year3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/Serbisyo4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="COOPERATIVE (as member)"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/php4_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <EditText
+                    android:id="@+id/php4_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year4_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Year/s Received : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/year4_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/qp_submit_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/save"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/qp_prev4btn_id" />
+
+    <Button
+        android:id="@+id/qp_prev4btn_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="@string/backbutton"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/qp_submit_id"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

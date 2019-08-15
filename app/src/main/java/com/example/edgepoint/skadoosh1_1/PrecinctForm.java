@@ -19,7 +19,7 @@ import java.util.List;
 public class PrecinctForm extends AppCompatActivity {
 
     ListView precinctList;
-    String barangay_form,city_form;
+    String barangay_form,city_form,RegisteredChoice;
     Form form;
     AlertDialog.Builder alertInvalid,alertError;
 
@@ -33,6 +33,7 @@ public class PrecinctForm extends AppCompatActivity {
         form = intent.getParcelableExtra("Form");
         city_form = form.getCity();
         barangay_form = form.getBarangay();
+        RegisteredChoice = intent.getStringExtra("RegisteredChoice");
 
 
         DatabaseAccess databaseAccessPrecinct = DatabaseAccess.getInstance(this,"voters.db");
@@ -103,6 +104,7 @@ public class PrecinctForm extends AppCompatActivity {
                                 if (LoginInfo == true){
                                     Intent intent = new Intent(PrecinctForm.this, VotersForm.class);
                                     intent.putExtra("Form",form);
+                                    intent.putExtra("RegisteredChoice",RegisteredChoice);
                                     startActivity(intent);
                                 }
                                 else alertInvalid.show();

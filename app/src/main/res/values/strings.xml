@@ -350,10 +350,8 @@
         <item>More than 189,360 (157,801 and more)</item>
     </string-array>
     <string-array name="registered_voter">
-        <item></item>
         <item>Yes</item>
         <item>No</item>
-        <item>Deceased</item>
     </string-array>
 
 </resources>

@@ -19,13 +19,20 @@ public class CollectData extends AppCompatActivity {
 
     public void onButtonClick(View v) {
         if (v.getId() == R.id.collect_btn) {
-            Intent i = new Intent(CollectData.this, CityForm.class);
-            startActivity(i);
+            Intent intent = new Intent(CollectData.this, CityForm.class);
+            intent.putExtra("RegisteredChoice","Registered");
+            startActivity(intent);
+        }
+
+        if (v.getId() == R.id.collectunreg_btn) {
+            Intent intent = new Intent(CollectData.this, CityForm.class);
+            intent.putExtra("RegisteredChoice","UnRegistered");
+            startActivity(intent);
         }
 
         if (v.getId() == R.id.addreg_btn) {
-            Intent i = new Intent(CollectData.this, NewRegister.class);
-            startActivity(i);
+            Intent intent = new Intent(CollectData.this, NewRegister.class);
+            startActivity(intent);
         }
 
     }

@@ -7,6 +7,68 @@
     tools:context=".CollectData">
 
     <Button
+        android:id="@+id/collect_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/collect_reg"
+        android:onClick="onButtonClick"
+        android:padding="10dp"
+        android:text="Collect Data\n(Registered Voter)"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/collectunreg_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/collectunreg_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/collect_unreg"
+        android:onClick="onButtonClick"
+        android:padding="10dp"
+        android:text="Collect Data\n(Unregistered Voter)"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addreg_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collect_btn" />
+
+    <Button
+        android:id="@+id/addreg_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/add_reg"
+        android:onClick="onButtonClick"
+        android:padding="10dp"
+        android:text="ADD NEW PROFILE"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/prev2btn_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collectunreg_btn" />
+
+    <Button
         android:id="@+id/homebtn"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="0dp"
@@ -38,47 +100,5 @@
         app:layout_constraintEnd_toStartOf="@+id/homebtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/side_index" />
-
-    <Button
-        android:id="@+id/collect_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/collect_reg"
-        android:onClick="onButtonClick"
-        android:padding="10dp"
-        android:text="Collect Data"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/addreg_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/addreg_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/add_reg"
-        android:onClick="onButtonClick"
-        android:padding="10dp"
-        android:text="ADD NEW PROFILE"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/prev2btn_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/collect_btn"
-        app:layout_constraintVertical_bias="0.295" />
 
 </android.support.constraint.ConstraintLayout>

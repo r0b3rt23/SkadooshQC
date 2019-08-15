@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -23,7 +24,7 @@ public class BarangayForm extends Activity implements View.OnClickListener {
     Map<String, Integer> mapIndex;
     ListView barangayList;
     Form form;
-    String city_form;
+    String city_form,RegisteredChoice;
     ProgressDialog progressDialog;
 
     @Override
@@ -61,6 +62,7 @@ public class BarangayForm extends Activity implements View.OnClickListener {
         Intent intent = getIntent();
 
         form = intent.getParcelableExtra("Form");
+        RegisteredChoice = intent.getStringExtra("RegisteredChoice");
 
         city_form = form.getCity();
 
@@ -80,12 +82,22 @@ public class BarangayForm extends Activity implements View.OnClickListener {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 String barangay_form =  (String) barangayList.getItemAtPosition(position);
+                if (RegisteredChoice.equals("Registered")) {
 
-                form = new Form(city_form,barangay_form,"","");
+                    form = new Form(city_form, barangay_form, "", "");
 
-                Intent intent = new Intent(BarangayForm.this, PrecinctForm.class);
-                intent.putExtra("Form",form);
-                startActivity(intent);
+                    Intent intent = new Intent(BarangayForm.this, PrecinctForm.class);
+                    intent.putExtra("Form", form);
+                    intent.putExtra("RegisteredChoice", RegisteredChoice);
+                    startActivity(intent);
+                }else {
+                    form = new Form(city_form, barangay_form, "", "");
+
+                    Intent intent = new Intent(BarangayForm.this, VotersForm.class);
+                    intent.putExtra("Form", form);
+                    intent.putExtra("RegisteredChoice", RegisteredChoice);
+                    startActivity(intent);
+                }
 
             }
         });

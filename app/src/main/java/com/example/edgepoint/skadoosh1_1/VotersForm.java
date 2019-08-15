@@ -30,8 +30,9 @@ import java.util.Map;
 public class VotersForm extends Activity implements View.OnClickListener  {
     Map<String, Integer> mapIndex;
     ListView votersList;
-    String precinct_form, barangay_form,city_form;
+    String precinct_form, barangay_form,city_form,RegisteredChoice;
     Form form;
+    List<String> votersname,indicator,deceased;
     private VotersAdapter mAdapter;
 
     @Override
@@ -68,14 +69,27 @@ public class VotersForm extends Activity implements View.OnClickListener  {
         city_form = form.getCity();
         precinct_form = form.getPrecinct();
         barangay_form = form.getBarangay();
+        RegisteredChoice = intent.getStringExtra("RegisteredChoice");
 
-        DatabaseAccess databaseAccessVotersname = DatabaseAccess.getInstance(VotersForm.this,"voters.db");
-        databaseAccessVotersname.open();
+        if (RegisteredChoice.equals("Registered")) {
 
-        final List<String> votersname = databaseAccessVotersname.getVotersName(city_form,barangay_form,precinct_form,"City_Municipality=? AND Barangay=? AND Precinct=?","VotersName");
-        final List<String> indicator = databaseAccessVotersname.getIndicator(city_form,barangay_form,precinct_form,"City_Municipality=? AND Barangay=? AND Precinct=?","VotersName");
-        final List<String> deceased = databaseAccessVotersname.getDeceased(city_form,barangay_form,precinct_form,"City_Municipality=? AND Barangay=? AND Precinct=?","VotersName");
-        databaseAccessVotersname.close();
+            DatabaseAccess databaseAccessVotersname = DatabaseAccess.getInstance(VotersForm.this, "voters.db");
+            databaseAccessVotersname.open();
+
+            votersname = databaseAccessVotersname.getVotersName(city_form, barangay_form, precinct_form, "City_Municipality=? AND Barangay=? AND Precinct=?", "VotersName");
+            indicator = databaseAccessVotersname.getIndicator(city_form, barangay_form, precinct_form, "City_Municipality=? AND Barangay=? AND Precinct=?", "VotersName");
+            deceased = databaseAccessVotersname.getDeceased(city_form, barangay_form, precinct_form, "City_Municipality=? AND Barangay=? AND Precinct=?", "VotersName");
+            databaseAccessVotersname.close();
+        }
+        else {
+            DatabaseAccess databaseAccessVotersname = DatabaseAccess.getInstance(VotersForm.this, "voters.db");
+            databaseAccessVotersname.open();
+
+            votersname = databaseAccessVotersname.getUnregName(city_form, barangay_form,  "City_Municipality=? AND Barangay=?", "VotersName");
+            indicator = databaseAccessVotersname.getUnregIndicator(city_form, barangay_form, "City_Municipality=? AND Barangay=?", "VotersName");
+            deceased = databaseAccessVotersname.getUnregDeceased(city_form, barangay_form, "City_Municipality=? AND Barangay=?", "VotersName");
+            databaseAccessVotersname.close();
+        }
 
         final String[] votersArr = votersname.toArray(new String[votersname.size()]);
 
@@ -92,9 +106,15 @@ public class VotersForm extends Activity implements View.OnClickListener  {
 
                 form = new Form(city_form,barangay_form,precinct_form,voters_form);
 
-                Intent intent = new Intent(VotersForm.this, QuestionForm_new.class);
-                intent.putExtra("Form",form);
-                startActivity(intent);
+                if (RegisteredChoice.equals("Registered")) {
+                    Intent intent = new Intent(VotersForm.this, QuestionForm_new.class);
+                    intent.putExtra("Form", form);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(VotersForm.this, QuestionForm_Unreg.class);
+                    intent.putExtra("Form", form);
+                    startActivity(intent);
+                }
 
             }
         });

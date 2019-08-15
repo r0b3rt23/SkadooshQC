@@ -20,6 +20,7 @@ public class DatabaseAccess {
     private String[] columnsLogin = { "id" ,"username" ,"password"};
     private String[] columnsBatch = { "id" ,"batch_name","batch_count"};
     private String voters_table = "voters_table";
+    private String nonvoters_table = "nonvoters_table";
     private String upload_table = "upload_table";
     private String users_table = "users_table";
     private String admin_table = "admin_table";
@@ -149,6 +150,16 @@ public class DatabaseAccess {
         return list;
     }
 
+    public String getUnregList(String votersname, String city ,String barangay ,String precinct,String sel,String group,int x) {
+        String list = "";
+        Cursor cursor = database.query(nonvoters_table, null , sel, new String[] {votersname,city,barangay,precinct}, group, null, null, null);
+        cursor.moveToFirst();
+        list = cursor.getString(x);
+        cursor.moveToNext();
+        cursor.close();
+        return list;
+    }
+
     public List<String> setDatabase(String group,int x) {
         List<String> list = new ArrayList<>();
         Cursor cursor = database.query(true,voters_table, null , null,null, group, null, null, null);
@@ -232,9 +243,55 @@ public class DatabaseAccess {
         cursor.close();
         return list;
     }
+
+    public List<String> getUnregName(String city ,String barangay ,String sel_city_barangay,String group) {
+        List<String> list = new ArrayList<>();
+        Cursor cursor = database.query(nonvoters_table, null , sel_city_barangay, new String[] {city,barangay}, group, null, group + " ASC", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            list.add(cursor.getString(cursor.getColumnIndex(group)));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+    public List<String> getUnregIndicator(String city ,String barangay ,String sel_city_barangay,String group) {
+        List<String> list = new ArrayList<>();
+        Cursor cursor = database.query(nonvoters_table, null , sel_city_barangay, new String[] {city,barangay}, group, null, group + " ASC", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            list.add(cursor.getString(cursor.getColumnIndex("Indicator")));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+    public List<String> getUnregDeceased(String city ,String barangay ,String sel_city_barangay,String group) {
+        List<String> list = new ArrayList<>();
+        Cursor cursor = database.query(nonvoters_table, null , sel_city_barangay, new String[] {city,barangay}, group, null, group + " ASC", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            list.add(cursor.getString(cursor.getColumnIndex("Deceased")));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+
     public String getDeceasedStr(String votersname) {
         String str = "";
         Cursor cursor = database.query(voters_table, null , "VotersName=?", new String[] {votersname}, null, null, null, null);
+        cursor.moveToFirst();
+        str = cursor.getString(cursor.getColumnIndex("Deceased"));
+        cursor.moveToNext();
+        cursor.close();
+        return str;
+    }
+
+    public String getUnregDeceasedStr(String votersname) {
+        String str = "";
+        Cursor cursor = database.query(nonvoters_table, null , "VotersName=?", new String[] {votersname}, null, null, null, null);
         cursor.moveToFirst();
         str = cursor.getString(cursor.getColumnIndex("Deceased"));
         cursor.moveToNext();
@@ -369,6 +426,47 @@ public class DatabaseAccess {
         return false;
     }
 
+    public boolean insertNewProfileData(String registered, String votersname, String VotersAddress ,String City, String Barangay,String Precinct, String Indicator,
+                                        String Deceased, String Encoder, String Contact, String Birthday, String Age, String Email,
+                                        String Education, String Income) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("VotersName",votersname);
+        contentValues.put("VotersAddress",VotersAddress);
+        contentValues.put("City_Municipality",City);
+        contentValues.put("Barangay",Barangay);
+        contentValues.put("Precinct",Precinct);
+        contentValues.put("Indicator",Indicator);
+        contentValues.put("Deceased",Deceased);
+        contentValues.put("Encoder",Encoder);
+        contentValues.put("Contact",Contact);
+        contentValues.put("Birthday",Birthday);
+        contentValues.put("Age",Age);
+        contentValues.put("Email",Email);
+        contentValues.put("Education",Education);
+        contentValues.put("Income",Income);
+        contentValues.put("PartyList","");
+        contentValues.put("Governor","");
+        contentValues.put("ViceGovernor","");
+        contentValues.put("Congressman","");
+        contentValues.put("Mayor","");
+        contentValues.put("ALCALA","");
+        contentValues.put("ALEJANDRINO","");
+        contentValues.put("CASULLA","");
+        contentValues.put("GONZALES","");
+        contentValues.put("LIWANAG","");
+        contentValues.put("SIO","");
+        contentValues.put("TALAGA","");
+        contentValues.put("TANADA","");
+
+        if (registered.equals("No")) {
+            database.insert(nonvoters_table, null, contentValues);
+        }else{
+            database.insert(voters_table, null, contentValues);
+        }
+//        database.insertWithOnConflict(upload_table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+        return true;
+    }
+
     public boolean insertOnConflictData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
                                         String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
                                         String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
@@ -399,6 +497,40 @@ public class DatabaseAccess {
         contentValues.put("Education",Education);
         contentValues.put("Income",Income);
         database.update(voters_table, contentValues, "VotersName=?",new String[] {votersname});
+        database.insertWithOnConflict(upload_table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+        return true;
+    }
+
+    public boolean insertOnConflictUnregData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
+                                        String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
+                                        String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
+                                        String Education, String Income) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("VotersName",votersname);
+        contentValues.put("Governor",Governor);
+        contentValues.put("ViceGovernor",ViceGovernor);
+        contentValues.put("Congressman",Congressman);
+        contentValues.put("Mayor",Mayor);
+        contentValues.put("ALCALA",ALCALA);
+        contentValues.put("ALEJANDRINO",ALEJANDRINO);
+        contentValues.put("CASULLA",CASULLA);
+        contentValues.put("GONZALES",GONZALES);
+        contentValues.put("LIWANAG",LIWANAG);
+        contentValues.put("SIO",SIO);
+        contentValues.put("TALAGA",TALAGA);
+        contentValues.put("TANADA",TANADA);
+        contentValues.put("Indicator",Indicator);
+        contentValues.put("Deceased",Deceased);
+        contentValues.put("PartyList",PartyList);
+        contentValues.put("Encoder",Encoder);
+        contentValues.put("Contact",Contact);
+        contentValues.put("VotersAddress",VotersAddress);
+        contentValues.put("Birthday",Birthday);
+        contentValues.put("Age",Age);
+        contentValues.put("Email",Email);
+        contentValues.put("Education",Education);
+        contentValues.put("Income",Income);
+        database.update(nonvoters_table, contentValues, "VotersName=?",new String[] {votersname});
         database.insertWithOnConflict(upload_table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         return true;
     }
@@ -434,6 +566,40 @@ public class DatabaseAccess {
         contentValues.put("Income",Income);
             database.update(voters_table, contentValues, "VotersName=?",new String[] {votersname});
             database.update(upload_table, contentValues, "VotersName=?",new String[] {votersname});
+        return true;
+    }
+
+    public boolean updateUnregData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
+                              String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
+                              String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
+                              String Education, String Income) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("VotersName",votersname);
+        contentValues.put("Governor",Governor);
+        contentValues.put("ViceGovernor",ViceGovernor);
+        contentValues.put("Congressman",Congressman);
+        contentValues.put("Mayor",Mayor);
+        contentValues.put("ALCALA",ALCALA);
+        contentValues.put("ALEJANDRINO",ALEJANDRINO);
+        contentValues.put("CASULLA",CASULLA);
+        contentValues.put("GONZALES",GONZALES);
+        contentValues.put("LIWANAG",LIWANAG);
+        contentValues.put("SIO",SIO);
+        contentValues.put("TALAGA",TALAGA);
+        contentValues.put("TANADA",TANADA);
+        contentValues.put("Indicator",Indicator);
+        contentValues.put("Deceased",Deceased);
+        contentValues.put("PartyList",PartyList);
+        contentValues.put("Encoder",Encoder);
+        contentValues.put("Contact",Contact);
+        contentValues.put("VotersAddress",VotersAddress);
+        contentValues.put("Birthday",Birthday);
+        contentValues.put("Age",Age);
+        contentValues.put("Email",Email);
+        contentValues.put("Education",Education);
+        contentValues.put("Income",Income);
+        database.update(nonvoters_table, contentValues, "VotersName=?",new String[] {votersname});
+        database.update(upload_table, contentValues, "VotersName=?",new String[] {votersname});
         return true;
     }
 

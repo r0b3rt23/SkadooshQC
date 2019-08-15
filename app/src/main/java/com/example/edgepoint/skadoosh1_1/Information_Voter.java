@@ -33,13 +33,23 @@ public class Information_Voter extends AppCompatActivity {
         String str_votersname = SearchInfo.get(3);
         String str_address = SearchInfo.get(4);
         String str_contact = SearchInfo.get(24);
+        String str_birthday = SearchInfo.get(25);
+        String str_age = SearchInfo.get(26);
+        String str_email = SearchInfo.get(27);
+        String str_education = SearchInfo.get(28);
+        String str_income = SearchInfo.get(29);
 
         profile_display.setText("BOTANTE : "+str_votersname+"\n\n"+
                 "CITY/MUNICIPALITY : "+str_city+" \n\n"+
                 "BARANGAY : "+str_barangay+" \n\n"+
                 "ADDRESS : "+str_address+"\n\n"+
                 "PRESINTO : "+str_pricinct+"\n\n"+
-                "CONTACT NO. : "+str_contact);
+                "CONTACT NO. : "+str_contact+"\n\n"+
+                "BIRTHDAY. : "+str_birthday+"\n\n"+
+                "AGE : "+str_age+"\n\n"+
+                "EMAIL : "+str_email+"\n\n"+
+                "EDUCATION : "+str_education+"\n\n"+
+                "ANNUAL INCOME : "+str_income);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +71,23 @@ public class Information_Voter extends AppCompatActivity {
         String str_votersname = SearchInfo.get(3);
         String str_address = SearchInfo.get(4);
         String str_contact = SearchInfo.get(24);
+        String str_birthday = SearchInfo.get(25);
+        String str_age = SearchInfo.get(26);
+        String str_email = SearchInfo.get(27);
+        String str_education = SearchInfo.get(28);
+        String str_income = SearchInfo.get(29);
 
         profile_display.setText("BOTANTE : "+str_votersname+"\n\n"+
                 "CITY/MUNICIPALITY : "+str_city+" \n\n"+
                 "BARANGAY : "+str_barangay+" \n\n"+
                 "ADDRESS : "+str_address+"\n\n"+
                 "PRESINTO : "+str_pricinct+"\n\n"+
-                "CONTACT NO. : "+str_contact);
+                "CONTACT NO. : "+str_contact+"\n\n"+
+                "BIRTHDAY. : "+str_birthday+"\n\n"+
+                "AGE : "+str_age+"\n\n"+
+                "EMAIL : "+str_email+"\n\n"+
+                "EDUCATION : "+str_education+"\n\n"+
+                "ANNUAL INCOME : "+str_income);
 
         VotingPreferenceButton(profString);
         CollecDataButton(str_city,str_barangay,str_pricinct,str_votersname);
@@ -183,7 +203,7 @@ public class Information_Voter extends AppCompatActivity {
             public void onClick(View view) {
 
                 Form form = new Form(city_form,barangay_form,precinct_form,voters_form);
-                Intent intent = new Intent(Information_Voter.this, QuestionForm_QuezProv.class);
+                Intent intent = new Intent(Information_Voter.this, QuestionForm_new.class);
                 intent.putExtra("Form",form);
                 startActivity(intent);
 //                showLoginDialog(precinct_form,form);
@@ -191,67 +211,6 @@ public class Information_Voter extends AppCompatActivity {
         });
 
     }
-
-//    private void showLoginDialog(final String pct, final Form formDialog) {
-//        alertInvalid = new AlertDialog.Builder(Information_Voter.this);
-//        alertInvalid.setMessage("Invalid Username & Password");
-//        alertInvalid.setPositiveButton("OK",null);
-//        alertError = new AlertDialog.Builder(Information_Voter.this);
-//        alertError.setTitle("( Precinct : "+pct+" )");
-//        alertError.setMessage("Invalid Login Credential.");
-//        alertError.setPositiveButton("OK",null);
-//
-//        LayoutInflater li = LayoutInflater.from(this);
-//        View prompt = li.inflate(R.layout.login_dialog, null);
-//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-//        alertDialogBuilder.setView(prompt);
-//        final EditText user = (EditText) prompt.findViewById(R.id.login_name);
-//        final EditText pass = (EditText) prompt.findViewById(R.id.login_password);
-//        user.setText(pct);
-//        alertDialogBuilder.setTitle("PRECINCT LOGIN");
-//        alertDialogBuilder.setCancelable(false)
-//                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        String password = pass.getText().toString();
-//                        String username = user.getText().toString();
-//                        try {
-//
-//                            DatabaseAccess databaseloginInfo = DatabaseAccess.getInstance(Information_Voter.this,"voters.db");
-//                            databaseloginInfo.open();
-//                            List<String> LoginInfo = databaseloginInfo.loginInfo(username,"users_table");
-//                            databaseloginInfo.close();
-//
-//                            String str_username = LoginInfo.get(1);
-//                            String str_password = LoginInfo.get(2);
-//
-//                            if (username.equals(pct) ){
-//                                if (username.equals(str_username) && password.equals(str_password)){
-//                                    Intent intent = new Intent(Information_Voter.this, QuestionForm_QuezProv.class);
-//                                    intent.putExtra("Form",formDialog);
-//                                    startActivity(intent);
-//                                }
-//                                else alertInvalid.show();
-//                            }
-//                            else alertError.show();
-//
-//                        } catch (Exception e) {
-//                            alertInvalid.show();
-//                        }
-//                    }
-//                });
-//
-//        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int id) {
-//                dialog.cancel();
-//
-//            }
-//        });
-//
-//        alertDialogBuilder.show();
-//
-//    }
 
     public void BackButton(){
         Button backbutton = (Button) findViewById(R.id.bckbtn);
