@@ -70,9 +70,10 @@ public class VotersForm extends Activity implements View.OnClickListener  {
         precinct_form = form.getPrecinct();
         barangay_form = form.getBarangay();
         RegisteredChoice = intent.getStringExtra("RegisteredChoice");
+        TextView votersform_display = (TextView) findViewById(R.id.voters_tv_id);
 
         if (RegisteredChoice.equals("Registered")) {
-
+            votersform_display.setText("Registered Voters");
             DatabaseAccess databaseAccessVotersname = DatabaseAccess.getInstance(VotersForm.this, "voters.db");
             databaseAccessVotersname.open();
 
@@ -82,6 +83,7 @@ public class VotersForm extends Activity implements View.OnClickListener  {
             databaseAccessVotersname.close();
         }
         else {
+            votersform_display.setText("Non-registered Voters");
             DatabaseAccess databaseAccessVotersname = DatabaseAccess.getInstance(VotersForm.this, "voters.db");
             databaseAccessVotersname.open();
 

@@ -44,9 +44,9 @@ public class DataManagement extends AppCompatActivity {
         prevbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DataManagement.this, MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
+//                Intent i = new Intent(DataManagement.this, MainActivity.class);
+//                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(i);
                 finish();
             }
         });

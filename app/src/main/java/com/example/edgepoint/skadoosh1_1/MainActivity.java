@@ -117,8 +117,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonClick(View v) {
         if (v.getId() == R.id.Bfillform) {
-            Intent i = new Intent(MainActivity.this, CollectData.class);
-            startActivity(i);
+            Intent intent = new Intent(MainActivity.this, CollectData.class);
+            intent.putExtra("City","empty");
+            startActivity(intent);
         }
 
         if (v.getId() == R.id.Bviewgraphs) {
@@ -135,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (v.getId() == R.id.datamanagement) {
             Intent i = new Intent(MainActivity.this, DataManagement.class);
+            startActivity(i);
+        }
+
+        if (v.getId() == R.id.managecoordinator) {
+            Intent i = new Intent(MainActivity.this, ManageCoordinator.class);
             startActivity(i);
         }
 

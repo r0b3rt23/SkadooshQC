@@ -142,14 +142,28 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/mobile_id"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Phone No."
-                android:inputType="phone" />
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/prefix_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:drawable/editbox_background" />
+
+                <EditText
+                    android:id="@+id/mobile_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Phone No."
+                    android:inputType="phone"
+                    android:maxLength="7" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/email_tv"
@@ -161,14 +175,45 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/email_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress" />
+
+                <Spinner
+                    android:id="@+id/emailextension_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/facebook_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
             <EditText
-                android:id="@+id/email_id"
+                android:id="@+id/facebook_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress" />
+                android:hint="Facebook Account"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/education_tv"
@@ -210,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="VOTER PREFERENCE"
+                android:text="PREFERRED LEADERS"
                 android:textColor="#9C27B0"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -315,14 +360,31 @@
                 android:background="@android:drawable/dialog_holo_light_frame" />
 
             <TextView
-                android:id="@+id/partylist_tv"
+                android:id="@+id/vicemayor_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Party List"
+                android:text="Vice Mayor"
                 android:textAllCaps="true"
                 android:textColor="#FF0099CC"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/vicemayor_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/partylist_tv"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Party List"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="#FF0099CC"-->
+            <!--android:textSize="18sp"-->
+            <!--android:textStyle="bold"/>-->
 
             <AutoCompleteTextView
                 android:id="@+id/partylist_id"
@@ -366,20 +428,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/php_tv"
+                    android:id="@+id/service_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cost of service/s : "
-                    android:textSize="14sp"
-                    android:textStyle="bold|italic" />
+                    android:layout_gravity="center_vertical"
+                    android:text="SERVICE : "
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/php1_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Spinner
+                    android:id="@+id/educ_service_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
+                    android:background="@android:drawable/dialog_holo_light_frame" />
             </LinearLayout>
 
             <LinearLayout
@@ -389,7 +451,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/year1_id"
+                    android:id="@+id/educ_year1_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -398,7 +460,68 @@
                     android:textStyle="bold|italic" />
 
                 <Spinner
-                    android:id="@+id/year1_spinner"
+                    android:id="@+id/educ_year1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/educ_year2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/educ_year3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/educ_year4_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/educ_php_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+                <Spinner
+                    android:id="@+id/educ_php1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+                <Spinner
+                    android:id="@+id/educ_php2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+                <Spinner
+                    android:id="@+id/educ_php3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+                <Spinner
+                    android:id="@+id/educ_php4_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -423,20 +546,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/php2_tv"
+                    android:id="@+id/service2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cost of service/s : "
-                    android:textSize="14sp"
-                    android:textStyle="bold|italic" />
+                    android:layout_gravity="center_vertical"
+                    android:text="SERVICE : "
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/php2_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Spinner
+                    android:id="@+id/medical_service_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
+                    android:background="@android:drawable/dialog_holo_light_frame" />
             </LinearLayout>
 
             <LinearLayout
@@ -446,7 +569,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/year2_id"
+                    android:id="@+id/medical_year1_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -455,7 +578,72 @@
                     android:textStyle="bold|italic" />
 
                 <Spinner
-                    android:id="@+id/year2_spinner"
+                    android:id="@+id/medical_year1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/medical_year2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/medical_year3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/medical_year4_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/medical_php1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/medical_php1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/medical_php2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/medical_php3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/medical_php4_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -480,20 +668,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/php3_tv"
+                    android:id="@+id/service3_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cost of service/s : "
-                    android:textSize="14sp"
-                    android:textStyle="bold|italic" />
+                    android:layout_gravity="center_vertical"
+                    android:text="SERVICE : "
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/php3_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Spinner
+                    android:id="@+id/agriculture_service_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
+                    android:background="@android:drawable/dialog_holo_light_frame" />
             </LinearLayout>
 
             <LinearLayout
@@ -503,7 +691,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/year3_id"
+                    android:id="@+id/agriculture_year1_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -512,7 +700,72 @@
                     android:textStyle="bold|italic" />
 
                 <Spinner
-                    android:id="@+id/year3_spinner"
+                    android:id="@+id/agriculture_year1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/agriculture_year2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/agriculture_year3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/agriculture_year4_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/agriculture_php1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/agriculture_php1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/agriculture_php2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/agriculture_php3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/agriculture_php4_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -536,20 +789,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/php4_tv"
+                    android:id="@+id/service4_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cost of service/s : "
-                    android:textSize="14sp"
-                    android:textStyle="bold|italic" />
+                    android:layout_gravity="center_vertical"
+                    android:text="SERVICE : "
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/php4_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Spinner
+                    android:id="@+id/cooperative_service_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
+                    android:background="@android:drawable/dialog_holo_light_frame" />
             </LinearLayout>
 
             <LinearLayout
@@ -559,7 +812,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/year4_id"
+                    android:id="@+id/cooperative_year1_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -568,7 +821,72 @@
                     android:textStyle="bold|italic" />
 
                 <Spinner
-                    android:id="@+id/year4_spinner"
+                    android:id="@+id/cooperative_year1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/cooperative_year2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/cooperative_year3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/cooperative_year4_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cooperative_php1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Cost of service/s : "
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/cooperative_php1_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/cooperative_php2_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/cooperative_php3_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/dialog_holo_light_frame" />
+
+                <Spinner
+                    android:id="@+id/cooperative_php4_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

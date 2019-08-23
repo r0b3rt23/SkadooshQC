@@ -164,7 +164,7 @@
         <item></item>
         <item>BOONGALING, MACKY</item>
         <item>MALIWANAG, BONG</item>
-        <item>Undecided</item>
+        <item>Indefinite</item>
     </string-array>
     <string-array name="QuezProv_tiaong_ch_mayor">
         <item></item>
@@ -184,6 +184,46 @@
         <item>WAGAN, ERICK</item>
         <item>Indefinite</item>
     </string-array>
+
+    <string-array name="QuezProv_lucena_ch_vicemayor">
+        <item></item>
+        <item>ALCANTARA, JOEMARK</item>
+        <item>CASTILLO, PHILIP</item>
+        <item>TALABONG, BONG</item>
+        <item>TALAGA, MIKE</item>
+        <item>Indefinite</item>
+    </string-array>
+    <string-array name="QuezProv_sariaya_ch_vicemayor">
+        <item></item>
+        <item>DE LA PENA, TEODY</item>
+        <item>TOLENTINO, ALEX</item>
+        <item>VENDIOLA, ERLINDA</item>
+        <item>Indefinite</item>
+    </string-array>
+    <string-array name="QuezProv_candelaria_ch_vicemayor">
+        <item></item>
+        <item>ATIENZA, NATY</item>
+        <item>SUAYAN, OGIE</item>
+        <item>Indefinite</item>
+    </string-array>
+    <string-array name="QuezProv_tiaong_ch_vicemayor">
+        <item></item>
+        <item>RAZON, WILLIAM</item>
+        <item>UMALI, DICK</item>
+        <item>Indefinite</item>
+    </string-array>
+    <string-array name="QuezProv_dolores_ch_vicemayor">
+        <item></item>
+        <item>AMAT, DANNY</item>
+        <item>MENDOZA, PEPAY</item>
+        <item>Indefinite</item>
+    </string-array>
+    <string-array name="QuezProv_sanantonio_ch_vicemayor">
+        <item></item>
+        <item>PILLERBA, ALVIN</item>
+        <item>VESLINO, JAY</item>
+        <item>Indefinite</item>
+    </string-array>
     <string-array name="QuezProv_ch_bokal">
         <item>ALCALA, EMING</item>
         <item>ALEJANDRINO, BOYET</item>
@@ -193,6 +233,18 @@
         <item>SIO, BETH</item>
         <item>TALAGA, MANO</item>
         <item>TANADA, MICHAEL</item>
+    </string-array>
+    <string-array name="barangay_leader">
+        <item>Juan De Lacruz</item>
+        <item>Pedro San Juan</item>
+        <item>Sam Smith</item>
+        <item>Jason Perez</item>
+        <item>Karl Santos</item>
+        <item>Mark James</item>
+        <item>Luffy Raygar</item>
+        <item>John Snow</item>
+        <item>Daenerys Targaryan</item>
+        <item>Lebron Curry</item>
     </string-array>
     <string-array name="Party_list">
         <item>BAYAN MUNA</item>
@@ -341,17 +393,110 @@
     </string-array>
     <string-array name="Annual_income">
         <item></item>
-        <item>Less than 94,680 (7,890 monthly or less)</item>
-        <item>94,680 to 189,360 (7,891 to 15,780 moly)</item>
-        <item>189,361 to 378,720 (15,781 to 31,560 moly)</item>
-        <item>378,721 to 946,800 (31,561 to 78,900 moly)</item>
-        <item>946,801 to 1,420,200 (78,901 to 118,350 moly)</item>
-        <item>1,420,201 to 189,360 (118,351 to 157,800)</item>
-        <item>More than 189,360 (157,801 and more)</item>
+        <item>(7,890 monthly or less)</item>
+        <item>(7,891 to 15,780 monthly)</item>
+        <item>(15,781 to 31,560 monthly)</item>
+        <item>(31,561 to 78,900 monthly)</item>
+        <item>(78,901 to 118,350 monthly)</item>
+        <item>(118,351 to 157,800)</item>
+        <item>(157,801 and more)</item>
+    </string-array>
+    <string-array name="cost_of_service">
+        <item></item>
+        <item>300 and below</item>
+        <item>301 to 500</item>
+        <item>501 to 1,000</item>
+        <item>1,001 to 2,500</item>
+        <item>2,500 to 5,000</item>
+        <item>More than 5,000</item>
     </string-array>
     <string-array name="registered_voter">
         <item>Yes</item>
         <item>No</item>
     </string-array>
+    <string-array name="email_extension">
+        <item></item>
+        <item>\@yahoo.com</item>
+        <item>\@gmail.com</item>
+        <item>\@outlook.com</item>
+        <item>\@inbox.com</item>
+        <item>\@icloud.com</item>
+    </string-array>
+    <string-array name="service">
+        <item>SERVICE 1</item>
+        <item>SERVICE 2</item>
+        <item>SERVICE 3</item>
+        <item>SERVICE 4</item>
+    </string-array>
+    <string-array name="prefix">
+        <item></item>
+        <item>0904</item>
+        <item>0905</item>
+        <item>0906</item>
+        <item>0907</item>
+        <item>0908</item>
+        <item>0909</item>
+        <item>0910</item>
+        <item>0911</item>
+        <item>0912</item>
+        <item>0913</item>
+        <item>0914</item>
+        <item>0915</item>
+        <item>0916</item>
+        <item>0917</item>
+        <item>0918</item>
+        <item>0919</item>
+        <item>0920</item>
+        <item>0921</item>
+        <item>0922</item>
+        <item>0923</item>
+        <item>0924</item>
+        <item>0925</item>
+        <item>0926</item>
+        <item>0927</item>
+        <item>0928</item>
+        <item>0929</item>
+        <item>0930</item>
+        <item>0931</item>
+        <item>0932</item>
+        <item>0933</item>
+        <item>0934</item>
+        <item>0935</item>
+        <item>0936</item>
+        <item>0937</item>
+        <item>0938</item>
+        <item>0939</item>
+        <item>0941</item>
+        <item>0942</item>
+        <item>0943</item>
+        <item>0944</item>
+        <item>0945</item>
+        <item>0946</item>
+        <item>0947</item>
+        <item>0948</item>
+        <item>0949</item>
+        <item>0950</item>
+        <item>0955</item>
+        <item>0956</item>
+        <item>0961</item>
+        <item>0965</item>
+        <item>0966</item>
+        <item>0967</item>
+        <item>0970</item>
+        <item>0973</item>
+        <item>0975</item>
+        <item>0976</item>
+        <item>0977</item>
+        <item>0978</item>
+        <item>0979</item>
+        <item>0981</item>
+        <item>0989</item>
+        <item>0994</item>
+        <item>0995</item>
+        <item>0997</item>
+        <item>0998</item>
+        <item>0999</item>
+    </string-array>
+
 
 </resources>

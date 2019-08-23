@@ -72,16 +72,33 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/add_fname_id"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Full Name"
-                android:inputType="textPersonName" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/add_fname_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="First Name"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/add_lname_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Last Name"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/Linearlayout_city"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -245,14 +262,27 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/add_mobile_id"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Phone No."
-                android:inputType="phone" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/add_prefix_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:drawable/editbox_background" />
+
+                <EditText
+                    android:id="@+id/add_mobile_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Phone No."
+                    android:inputType="phone"
+                    android:maxLength="7" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/add_email_tv"
@@ -264,14 +294,44 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/add_email_id"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/add_email_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"  />
+
+                <Spinner
+                    android:id="@+id/add_ext_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/facebook_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:text="Facebook"
+                android:textAllCaps="true"
+                android:textColor="#FF0099CC"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/add_facebook_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress" />
+                android:hint="Facebook Account"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/add_education_tv"

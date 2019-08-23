@@ -44,7 +44,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
-        android:text="@string/votersname_tv"
+        android:text="REGISTERED VOTERS"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="20sp"

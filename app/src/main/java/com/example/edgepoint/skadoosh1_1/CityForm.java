@@ -31,10 +31,18 @@ public class CityForm  extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_form);
-                cityForm();
-                displayIndex();
-                formPrevButton();
-                homeButton ();
+        cityForm();
+        displayIndex();
+        formPrevButton();
+        DatabaseAccess databaseUserAccess = DatabaseAccess.getInstance(CityForm.this,"voters.db");
+        databaseUserAccess.open();
+        String UserAccess = databaseUserAccess.getUserAccess();
+        databaseUserAccess.close();
+        if (UserAccess.equals("skadoosh")){
+            homeButton();
+        }else {
+            homeButton2();
+        }
     }
     private void cityForm(){
         Intent intent = getIntent();
@@ -70,7 +78,21 @@ public class CityForm  extends Activity implements View.OnClickListener {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = new Intent(CityForm.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+    private void homeButton2() {
+        Button btnBack = (Button) findViewById(R.id.homebtn);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CityForm.this, Main2Activity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 finish();

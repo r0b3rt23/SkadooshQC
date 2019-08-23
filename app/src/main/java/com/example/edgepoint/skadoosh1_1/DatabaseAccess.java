@@ -427,7 +427,7 @@ public class DatabaseAccess {
     }
 
     public boolean insertNewProfileData(String registered, String votersname, String VotersAddress ,String City, String Barangay,String Precinct, String Indicator,
-                                        String Deceased, String Encoder, String Contact, String Birthday, String Age, String Email,
+                                        String Deceased, String Encoder, String Contact, String Birthday, String Age, String Email,String Facebook,
                                         String Education, String Income) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
@@ -442,6 +442,7 @@ public class DatabaseAccess {
         contentValues.put("Birthday",Birthday);
         contentValues.put("Age",Age);
         contentValues.put("Email",Email);
+        contentValues.put("Facebook",Facebook);
         contentValues.put("Education",Education);
         contentValues.put("Income",Income);
         contentValues.put("PartyList","");
@@ -457,6 +458,39 @@ public class DatabaseAccess {
         contentValues.put("SIO","");
         contentValues.put("TALAGA","");
         contentValues.put("TANADA","");
+        contentValues.put("ViceMayor","");
+        contentValues.put("Education_scholarship_year1","");
+        contentValues.put("Education_scholarship_php1","");
+        contentValues.put("Medical_assistance_year1","");
+        contentValues.put("Medical_assistance_php1","");
+        contentValues.put("Agriculture_year1","");
+        contentValues.put("Agriculture_php1","");
+        contentValues.put("Cooperative_year1","");
+        contentValues.put("Cooperative_php1","");
+        contentValues.put("Education_scholarship_year2","");
+        contentValues.put("Education_scholarship_php2","");
+        contentValues.put("Medical_assistance_year2","");
+        contentValues.put("Medical_assistance_php2","");
+        contentValues.put("Agriculture_year2","");
+        contentValues.put("Agriculture_php2","");
+        contentValues.put("Cooperative_year2","");
+        contentValues.put("Cooperative_php2","");
+        contentValues.put("Education_scholarship_year3","");
+        contentValues.put("Education_scholarship_php3","");
+        contentValues.put("Medical_assistance_year3","");
+        contentValues.put("Medical_assistance_php3","");
+        contentValues.put("Agriculture_year3","");
+        contentValues.put("Agriculture_php3","");
+        contentValues.put("Cooperative_year3","");
+        contentValues.put("Cooperative_php3","");
+        contentValues.put("Education_scholarship_year4","");
+        contentValues.put("Education_scholarship_php4","");
+        contentValues.put("Medical_assistance_year4","");
+        contentValues.put("Medical_assistance_php4","");
+        contentValues.put("Agriculture_year4","");
+        contentValues.put("Agriculture_php4","");
+        contentValues.put("Cooperative_year4","");
+        contentValues.put("Cooperative_php4","");
 
         if (registered.equals("No")) {
             database.insert(nonvoters_table, null, contentValues);
@@ -467,10 +501,13 @@ public class DatabaseAccess {
         return true;
     }
 
-    public boolean insertOnConflictData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
-                                        String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
-                                        String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
-                                        String Education, String Income) {
+    public boolean insertOnConflictData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,String CASULLA,
+                                        String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,String PartyList,
+                                        String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email, String Facebook, String Education, String Income, String ViceMayor,
+                                        String Education_scholarship_year1,String Education_scholarship_php1,String Medical_assistance_year1, String Medical_assistance_php1,String Agriculture_year1,String Agriculture_php1,String Cooperative_year1,String Cooperative_php1,
+                                        String Education_scholarship_year2,String Education_scholarship_php2,String Medical_assistance_year2, String Medical_assistance_php2,String Agriculture_year2,String Agriculture_php2,String Cooperative_year2,String Cooperative_php2,
+                                        String Education_scholarship_year3,String Education_scholarship_php3,String Medical_assistance_year3, String Medical_assistance_php3,String Agriculture_year3,String Agriculture_php3,String Cooperative_year3,String Cooperative_php3,
+                                        String Education_scholarship_year4,String Education_scholarship_php4,String Medical_assistance_year4, String Medical_assistance_php4,String Agriculture_year4,String Agriculture_php4,String Cooperative_year4,String Cooperative_php4) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
         contentValues.put("Governor",Governor);
@@ -494,17 +531,55 @@ public class DatabaseAccess {
         contentValues.put("Birthday",Birthday);
         contentValues.put("Age",Age);
         contentValues.put("Email",Email);
+        contentValues.put("Facebook",Facebook);
         contentValues.put("Education",Education);
         contentValues.put("Income",Income);
+        contentValues.put("ViceMayor",ViceMayor);
+        contentValues.put("Education_scholarship_year1",Education_scholarship_year1);
+        contentValues.put("Education_scholarship_php1",Education_scholarship_php1);
+        contentValues.put("Medical_assistance_year1",Medical_assistance_year1);
+        contentValues.put("Medical_assistance_php1",Medical_assistance_php1);
+        contentValues.put("Agriculture_year1",Agriculture_year1);
+        contentValues.put("Agriculture_php1",Agriculture_php1);
+        contentValues.put("Cooperative_year1",Cooperative_year1);
+        contentValues.put("Cooperative_php1",Cooperative_php1);
+        contentValues.put("Education_scholarship_year2",Education_scholarship_year2);
+        contentValues.put("Education_scholarship_php2",Education_scholarship_php2);
+        contentValues.put("Medical_assistance_year2",Medical_assistance_year2);
+        contentValues.put("Medical_assistance_php2",Medical_assistance_php2);
+        contentValues.put("Agriculture_year2",Agriculture_year2);
+        contentValues.put("Agriculture_php2",Agriculture_php2);
+        contentValues.put("Cooperative_year2",Cooperative_year2);
+        contentValues.put("Cooperative_php2",Cooperative_php2);
+        contentValues.put("Education_scholarship_year3",Education_scholarship_year3);
+        contentValues.put("Education_scholarship_php3",Education_scholarship_php3);
+        contentValues.put("Medical_assistance_year3",Medical_assistance_year3);
+        contentValues.put("Medical_assistance_php3",Medical_assistance_php3);
+        contentValues.put("Agriculture_year3",Agriculture_year3);
+        contentValues.put("Agriculture_php3",Agriculture_php3);
+        contentValues.put("Cooperative_year3",Cooperative_year3);
+        contentValues.put("Cooperative_php3",Cooperative_php3);
+        contentValues.put("Education_scholarship_year4",Education_scholarship_year4);
+        contentValues.put("Education_scholarship_php4",Education_scholarship_php4);
+        contentValues.put("Medical_assistance_year4",Medical_assistance_year4);
+        contentValues.put("Medical_assistance_php4",Medical_assistance_php4);
+        contentValues.put("Agriculture_year4",Agriculture_year4);
+        contentValues.put("Agriculture_php4",Agriculture_php4);
+        contentValues.put("Cooperative_year4",Cooperative_year4);
+        contentValues.put("Cooperative_php4",Cooperative_php4);
+
         database.update(voters_table, contentValues, "VotersName=?",new String[] {votersname});
         database.insertWithOnConflict(upload_table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         return true;
     }
 
-    public boolean insertOnConflictUnregData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
-                                        String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
-                                        String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
-                                        String Education, String Income) {
+    public boolean insertOnConflictUnregData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,String CASULLA,
+                                             String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,String PartyList,
+                                             String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email, String Facebook, String Education, String Income, String ViceMayor,
+                                             String Education_scholarship_year1,String Education_scholarship_php1,String Medical_assistance_year1, String Medical_assistance_php1,String Agriculture_year1,String Agriculture_php1,String Cooperative_year1,String Cooperative_php1,
+                                             String Education_scholarship_year2,String Education_scholarship_php2,String Medical_assistance_year2, String Medical_assistance_php2,String Agriculture_year2,String Agriculture_php2,String Cooperative_year2,String Cooperative_php2,
+                                             String Education_scholarship_year3,String Education_scholarship_php3,String Medical_assistance_year3, String Medical_assistance_php3,String Agriculture_year3,String Agriculture_php3,String Cooperative_year3,String Cooperative_php3,
+                                             String Education_scholarship_year4,String Education_scholarship_php4,String Medical_assistance_year4, String Medical_assistance_php4,String Agriculture_year4,String Agriculture_php4,String Cooperative_year4,String Cooperative_php4) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
         contentValues.put("Governor",Governor);
@@ -528,17 +603,54 @@ public class DatabaseAccess {
         contentValues.put("Birthday",Birthday);
         contentValues.put("Age",Age);
         contentValues.put("Email",Email);
+        contentValues.put("Facebook",Facebook);
         contentValues.put("Education",Education);
         contentValues.put("Income",Income);
+        contentValues.put("ViceMayor",ViceMayor);
+        contentValues.put("Education_scholarship_year1",Education_scholarship_year1);
+        contentValues.put("Education_scholarship_php1",Education_scholarship_php1);
+        contentValues.put("Medical_assistance_year1",Medical_assistance_year1);
+        contentValues.put("Medical_assistance_php1",Medical_assistance_php1);
+        contentValues.put("Agriculture_year1",Agriculture_year1);
+        contentValues.put("Agriculture_php1",Agriculture_php1);
+        contentValues.put("Cooperative_year1",Cooperative_year1);
+        contentValues.put("Cooperative_php1",Cooperative_php1);
+        contentValues.put("Education_scholarship_year2",Education_scholarship_year2);
+        contentValues.put("Education_scholarship_php2",Education_scholarship_php2);
+        contentValues.put("Medical_assistance_year2",Medical_assistance_year2);
+        contentValues.put("Medical_assistance_php2",Medical_assistance_php2);
+        contentValues.put("Agriculture_year2",Agriculture_year2);
+        contentValues.put("Agriculture_php2",Agriculture_php2);
+        contentValues.put("Cooperative_year2",Cooperative_year2);
+        contentValues.put("Cooperative_php2",Cooperative_php2);
+        contentValues.put("Education_scholarship_year3",Education_scholarship_year3);
+        contentValues.put("Education_scholarship_php3",Education_scholarship_php3);
+        contentValues.put("Medical_assistance_year3",Medical_assistance_year3);
+        contentValues.put("Medical_assistance_php3",Medical_assistance_php3);
+        contentValues.put("Agriculture_year3",Agriculture_year3);
+        contentValues.put("Agriculture_php3",Agriculture_php3);
+        contentValues.put("Cooperative_year3",Cooperative_year3);
+        contentValues.put("Cooperative_php3",Cooperative_php3);
+        contentValues.put("Education_scholarship_year4",Education_scholarship_year4);
+        contentValues.put("Education_scholarship_php4",Education_scholarship_php4);
+        contentValues.put("Medical_assistance_year4",Medical_assistance_year4);
+        contentValues.put("Medical_assistance_php4",Medical_assistance_php4);
+        contentValues.put("Agriculture_year4",Agriculture_year4);
+        contentValues.put("Agriculture_php4",Agriculture_php4);
+        contentValues.put("Cooperative_year4",Cooperative_year4);
+        contentValues.put("Cooperative_php4",Cooperative_php4);
         database.update(nonvoters_table, contentValues, "VotersName=?",new String[] {votersname});
         database.insertWithOnConflict(upload_table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         return true;
     }
 
-    public boolean updateData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
-                              String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
-                              String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
-                              String Education, String Income) {
+    public boolean updateData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,String CASULLA,
+                              String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,String PartyList,
+                              String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email, String Facebook, String Education, String Income, String ViceMayor,
+                              String Education_scholarship_year1,String Education_scholarship_php1,String Medical_assistance_year1, String Medical_assistance_php1,String Agriculture_year1,String Agriculture_php1,String Cooperative_year1,String Cooperative_php1,
+                              String Education_scholarship_year2,String Education_scholarship_php2,String Medical_assistance_year2, String Medical_assistance_php2,String Agriculture_year2,String Agriculture_php2,String Cooperative_year2,String Cooperative_php2,
+                              String Education_scholarship_year3,String Education_scholarship_php3,String Medical_assistance_year3, String Medical_assistance_php3,String Agriculture_year3,String Agriculture_php3,String Cooperative_year3,String Cooperative_php3,
+                              String Education_scholarship_year4,String Education_scholarship_php4,String Medical_assistance_year4, String Medical_assistance_php4,String Agriculture_year4,String Agriculture_php4,String Cooperative_year4,String Cooperative_php4) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
         contentValues.put("Governor",Governor);
@@ -562,17 +674,54 @@ public class DatabaseAccess {
         contentValues.put("Birthday",Birthday);
         contentValues.put("Age",Age);
         contentValues.put("Email",Email);
+        contentValues.put("Facebook",Facebook);
         contentValues.put("Education",Education);
         contentValues.put("Income",Income);
+        contentValues.put("ViceMayor",ViceMayor);
+        contentValues.put("Education_scholarship_year1",Education_scholarship_year1);
+        contentValues.put("Education_scholarship_php1",Education_scholarship_php1);
+        contentValues.put("Medical_assistance_year1",Medical_assistance_year1);
+        contentValues.put("Medical_assistance_php1",Medical_assistance_php1);
+        contentValues.put("Agriculture_year1",Agriculture_year1);
+        contentValues.put("Agriculture_php1",Agriculture_php1);
+        contentValues.put("Cooperative_year1",Cooperative_year1);
+        contentValues.put("Cooperative_php1",Cooperative_php1);
+        contentValues.put("Education_scholarship_year2",Education_scholarship_year2);
+        contentValues.put("Education_scholarship_php2",Education_scholarship_php2);
+        contentValues.put("Medical_assistance_year2",Medical_assistance_year2);
+        contentValues.put("Medical_assistance_php2",Medical_assistance_php2);
+        contentValues.put("Agriculture_year2",Agriculture_year2);
+        contentValues.put("Agriculture_php2",Agriculture_php2);
+        contentValues.put("Cooperative_year2",Cooperative_year2);
+        contentValues.put("Cooperative_php2",Cooperative_php2);
+        contentValues.put("Education_scholarship_year3",Education_scholarship_year3);
+        contentValues.put("Education_scholarship_php3",Education_scholarship_php3);
+        contentValues.put("Medical_assistance_year3",Medical_assistance_year3);
+        contentValues.put("Medical_assistance_php3",Medical_assistance_php3);
+        contentValues.put("Agriculture_year3",Agriculture_year3);
+        contentValues.put("Agriculture_php3",Agriculture_php3);
+        contentValues.put("Cooperative_year3",Cooperative_year3);
+        contentValues.put("Cooperative_php3",Cooperative_php3);
+        contentValues.put("Education_scholarship_year4",Education_scholarship_year4);
+        contentValues.put("Education_scholarship_php4",Education_scholarship_php4);
+        contentValues.put("Medical_assistance_year4",Medical_assistance_year4);
+        contentValues.put("Medical_assistance_php4",Medical_assistance_php4);
+        contentValues.put("Agriculture_year4",Agriculture_year4);
+        contentValues.put("Agriculture_php4",Agriculture_php4);
+        contentValues.put("Cooperative_year4",Cooperative_year4);
+        contentValues.put("Cooperative_php4",Cooperative_php4);
             database.update(voters_table, contentValues, "VotersName=?",new String[] {votersname});
             database.update(upload_table, contentValues, "VotersName=?",new String[] {votersname});
         return true;
     }
 
-    public boolean updateUnregData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,
-                              String CASULLA,String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,
-                              String PartyList, String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email,
-                              String Education, String Income) {
+    public boolean updateUnregData(String votersname,String Governor, String ViceGovernor,String Congressman,String Mayor,String ALCALA, String ALEJANDRINO,String CASULLA,
+                                   String GONZALES,String LIWANAG,String SIO,String TALAGA,String TANADA, String Indicator, String Deceased,String PartyList,
+                                   String Encoder, String Contact, String VotersAddress, String Birthday, String Age, String Email, String Facebook, String Education, String Income, String ViceMayor,
+                                   String Education_scholarship_year1,String Education_scholarship_php1,String Medical_assistance_year1, String Medical_assistance_php1,String Agriculture_year1,String Agriculture_php1,String Cooperative_year1,String Cooperative_php1,
+                                   String Education_scholarship_year2,String Education_scholarship_php2,String Medical_assistance_year2, String Medical_assistance_php2,String Agriculture_year2,String Agriculture_php2,String Cooperative_year2,String Cooperative_php2,
+                                   String Education_scholarship_year3,String Education_scholarship_php3,String Medical_assistance_year3, String Medical_assistance_php3,String Agriculture_year3,String Agriculture_php3,String Cooperative_year3,String Cooperative_php3,
+                                   String Education_scholarship_year4,String Education_scholarship_php4,String Medical_assistance_year4, String Medical_assistance_php4,String Agriculture_year4,String Agriculture_php4,String Cooperative_year4,String Cooperative_php4) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("VotersName",votersname);
         contentValues.put("Governor",Governor);
@@ -596,8 +745,42 @@ public class DatabaseAccess {
         contentValues.put("Birthday",Birthday);
         contentValues.put("Age",Age);
         contentValues.put("Email",Email);
+        contentValues.put("Facebook",Facebook);
         contentValues.put("Education",Education);
         contentValues.put("Income",Income);
+        contentValues.put("ViceMayor",ViceMayor);
+        contentValues.put("Education_scholarship_year1",Education_scholarship_year1);
+        contentValues.put("Education_scholarship_php1",Education_scholarship_php1);
+        contentValues.put("Medical_assistance_year1",Medical_assistance_year1);
+        contentValues.put("Medical_assistance_php1",Medical_assistance_php1);
+        contentValues.put("Agriculture_year1",Agriculture_year1);
+        contentValues.put("Agriculture_php1",Agriculture_php1);
+        contentValues.put("Cooperative_year1",Cooperative_year1);
+        contentValues.put("Cooperative_php1",Cooperative_php1);
+        contentValues.put("Education_scholarship_year2",Education_scholarship_year2);
+        contentValues.put("Education_scholarship_php2",Education_scholarship_php2);
+        contentValues.put("Medical_assistance_year2",Medical_assistance_year2);
+        contentValues.put("Medical_assistance_php2",Medical_assistance_php2);
+        contentValues.put("Agriculture_year2",Agriculture_year2);
+        contentValues.put("Agriculture_php2",Agriculture_php2);
+        contentValues.put("Cooperative_year2",Cooperative_year2);
+        contentValues.put("Cooperative_php2",Cooperative_php2);
+        contentValues.put("Education_scholarship_year3",Education_scholarship_year3);
+        contentValues.put("Education_scholarship_php3",Education_scholarship_php3);
+        contentValues.put("Medical_assistance_year3",Medical_assistance_year3);
+        contentValues.put("Medical_assistance_php3",Medical_assistance_php3);
+        contentValues.put("Agriculture_year3",Agriculture_year3);
+        contentValues.put("Agriculture_php3",Agriculture_php3);
+        contentValues.put("Cooperative_year3",Cooperative_year3);
+        contentValues.put("Cooperative_php3",Cooperative_php3);
+        contentValues.put("Education_scholarship_year4",Education_scholarship_year4);
+        contentValues.put("Education_scholarship_php4",Education_scholarship_php4);
+        contentValues.put("Medical_assistance_year4",Medical_assistance_year4);
+        contentValues.put("Medical_assistance_php4",Medical_assistance_php4);
+        contentValues.put("Agriculture_year4",Agriculture_year4);
+        contentValues.put("Agriculture_php4",Agriculture_php4);
+        contentValues.put("Cooperative_year4",Cooperative_year4);
+        contentValues.put("Cooperative_php4",Cooperative_php4);
         database.update(nonvoters_table, contentValues, "VotersName=?",new String[] {votersname});
         database.update(upload_table, contentValues, "VotersName=?",new String[] {votersname});
         return true;

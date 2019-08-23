@@ -10,9 +10,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -122,15 +124,15 @@ public class Main2Activity extends AppCompatActivity {
 
     public void onButtonClick(View v) {
         if (v.getId() == R.id.Bfillform2) {
-            Form form = new Form(UserAccess,"","","");
-            Intent intent = new Intent(Main2Activity.this, BarangayForm.class);
-            intent.putExtra("Form",form);
+            Intent intent = new Intent(Main2Activity.this, CollectData.class);
+            intent.putExtra("City",UserAccess);
             startActivity(intent);
         }
 
         if (v.getId() == R.id.Bviewprofile2) {
-            Intent intent = new Intent(Main2Activity.this, RecyclerSearchView.class);
-            startActivity(intent);
+            showLoginDialog("profile");
+//            Intent intent = new Intent(Main2Activity.this, RecyclerSearchView.class);
+//            startActivity(intent);
         }
 
         if (v.getId() == R.id.datamanagement2) {
@@ -139,35 +141,82 @@ public class Main2Activity extends AppCompatActivity {
             startActivity(intent);
         }
 
+        if (v.getId() == R.id.coordinator2) {
+//            String submit = "main_submit";
+            Intent intent = new Intent(Main2Activity.this, ManageCoordinator.class);
+            startActivity(intent);
+        }
+
     }
 
-//    private void requestStoragePermission() {
-//        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-//                Manifest.permission.READ_EXTERNAL_STORAGE)) {
-//
-//            new AlertDialog.Builder(this)
-//                    .setTitle("Permission needed")
-//                    .setMessage("This permission is needed because of this and that")
-//                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            ActivityCompat.requestPermissions(Main2Activity.this,
-//                                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-//                        }
-//                    })
-//                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            dialog.dismiss();
-//                        }
-//                    })
-//                    .create().show();
-//
-//        } else {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-//        }
-//    }
+    private void showLoginDialog(final String ch) {
+        LayoutInflater li = LayoutInflater.from(this);
+        View prompt = li.inflate(R.layout.login_dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(prompt);
+        final EditText user = (EditText) prompt.findViewById(R.id.login_name);
+        final EditText pass = (EditText) prompt.findViewById(R.id.login_password);
+        user.setText(UserAccess);
+
+        alertDialogBuilder.setTitle("View Information Login");
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        String password = pass.getText().toString();
+                        String username = user.getText().toString();
+                        try {
+
+                            DatabaseAccess databaseloginInfo = DatabaseAccess.getInstance(Main2Activity.this,"voters.db");
+                            databaseloginInfo.open();
+
+                            if (ch == "graph"){
+
+                                boolean LoginInfo = databaseloginInfo.loginInfo(username,password,"graph_login");
+
+                                if (LoginInfo == true){
+                                    Intent i = new Intent(Main2Activity.this, GraphMenu.class);
+                                    i.putExtra("username",username);
+                                    i.putExtra("password",password);
+                                    startActivity(i);
+                                }
+                                else {
+                                    Toast.makeText(Main2Activity.this,"Invalid Username or Password!", Toast.LENGTH_LONG).show();
+                                }
+
+
+                            }
+                            else if (ch == "profile"){
+                                boolean LoginInfo = databaseloginInfo.loginInfo(username,password,"admin_table");
+
+                                if (LoginInfo == true){
+                                    Intent i = new Intent(Main2Activity.this, RecyclerSearchView.class);
+                                    startActivity(i);
+                                }
+                                else {
+                                    Toast.makeText(Main2Activity.this,"Invalid Username or Password!", Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+                            databaseloginInfo.close();
+
+                        } catch (Exception e) {
+                            Toast.makeText(Main2Activity.this,"Invalid Username or Password!", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+
+            }
+        });
+
+        alertDialogBuilder.show();
+
+    }
 
     private void writeStoragePermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,

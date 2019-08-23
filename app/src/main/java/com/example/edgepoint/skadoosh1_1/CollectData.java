@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class CollectData extends AppCompatActivity {
-
+    String City;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_data);
+        Intent intent = getIntent();
+        City = intent.getStringExtra("City");
         homeButton ();
         formPrevButton();
 
@@ -19,19 +21,36 @@ public class CollectData extends AppCompatActivity {
 
     public void onButtonClick(View v) {
         if (v.getId() == R.id.collect_btn) {
-            Intent intent = new Intent(CollectData.this, CityForm.class);
-            intent.putExtra("RegisteredChoice","Registered");
-            startActivity(intent);
+            if (City.equals("empty")) {
+                Intent intent = new Intent(CollectData.this, CityForm.class);
+                intent.putExtra("RegisteredChoice", "Registered");
+                startActivity(intent);
+            }else {
+                Form form = new Form(City,"","","");
+                Intent intent = new Intent(CollectData.this, BarangayForm.class);
+                intent.putExtra("RegisteredChoice", "Registered");
+                intent.putExtra("Form", form);
+                startActivity(intent);
+            }
         }
 
         if (v.getId() == R.id.collectunreg_btn) {
-            Intent intent = new Intent(CollectData.this, CityForm.class);
-            intent.putExtra("RegisteredChoice","UnRegistered");
-            startActivity(intent);
+            if (City.equals("empty")) {
+                Intent intent = new Intent(CollectData.this, CityForm.class);
+                intent.putExtra("RegisteredChoice", "UnRegistered");
+                startActivity(intent);
+            }else {
+                Form form = new Form(City,"","","");
+                Intent intent = new Intent(CollectData.this, BarangayForm.class);
+                intent.putExtra("RegisteredChoice", "UnRegistered");
+                intent.putExtra("Form", form);
+                startActivity(intent);
+            }
         }
 
         if (v.getId() == R.id.addreg_btn) {
             Intent intent = new Intent(CollectData.this, NewRegister.class);
+            intent.putExtra("City", City);
             startActivity(intent);
         }
 
@@ -43,9 +62,6 @@ public class CollectData extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CollectData.this, MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
                 finish();
             }
         });
@@ -56,9 +72,6 @@ public class CollectData extends AppCompatActivity {
         prevbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CollectData.this, MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
                 finish();
             }
         });

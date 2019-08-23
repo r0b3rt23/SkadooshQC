@@ -28,21 +28,23 @@ import java.util.List;
 
 public class NewRegister extends AppCompatActivity {
 
-    public Spinner registered_spinner,city_spinner,barangay_spinner,precinct_spinner,add_education_spinner,add_income_spinner;
-    public EditText fullname,add_age,add_address,add_phonenumber,add_email;
+    public Spinner registered_spinner,city_spinner,barangay_spinner,precinct_spinner,add_education_spinner,add_income_spinner,add_prefix_spinner,add_ext_spinner;
+    public EditText firstname,lastname,add_age,add_address,add_phonenumber,add_email,add_facebook;
+    LinearLayout linearlayout_precinct,linearlayout_city;
     public TextView add_birthDate;
-    String cityspin,bgyspin,regspin;
+    String cityspin,bgyspin,regspin,City;
     Button submit;
     int day, month, year;
     public DatePickerDialog.OnDateSetListener mDateSetListener;
     ProgressDialog progressDialog;
+    int checkedItem = -1;
+    String setLeader = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_register);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data...");
@@ -62,7 +64,11 @@ public class NewRegister extends AppCompatActivity {
     }
 
     public void ProfileSheet(){
-        fullname = (EditText) findViewById(R.id.add_fname_id);
+        Intent intent = getIntent();
+        City = intent.getStringExtra("City");
+
+        firstname = (EditText) findViewById(R.id.add_fname_id);
+        lastname = (EditText) findViewById(R.id.add_lname_id);
         registered_spinner = (Spinner) findViewById(R.id.registered_spinner);
         city_spinner = (Spinner) findViewById(R.id.add_city_spinner);
         barangay_spinner = (Spinner) findViewById(R.id.add_barangay_spinner);
@@ -74,6 +80,11 @@ public class NewRegister extends AppCompatActivity {
         add_address = (EditText) findViewById(R.id.add_address_id);
         add_phonenumber = (EditText) findViewById(R.id.add_mobile_id);
         add_email = (EditText) findViewById(R.id.add_email_id);
+        add_facebook = (EditText) findViewById(R.id.add_facebook_id);
+        add_prefix_spinner = (Spinner)findViewById(R.id.add_prefix_spinner);
+        add_ext_spinner = (Spinner)findViewById(R.id.add_ext_spinner);
+        linearlayout_precinct = (LinearLayout) findViewById(R.id.linearlayout_precinct);
+        linearlayout_city = (LinearLayout) findViewById(R.id.Linearlayout_city);
 
         String[] regvoterArr = getResources().getStringArray(R.array.registered_voter);
         ArrayAdapter<String> adapterRegistered = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, regvoterArr);
@@ -82,7 +93,6 @@ public class NewRegister extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 regspin = registered_spinner.getSelectedItem().toString();
-                LinearLayout linearlayout_precinct = (LinearLayout) findViewById(R.id.linearlayout_precinct);
                 if (regspin.equals("No")) {
                     linearlayout_precinct.setVisibility(View.GONE);
                 }else {
@@ -100,6 +110,11 @@ public class NewRegister extends AppCompatActivity {
         String[] addcityArr = getResources().getStringArray(R.array.city_municipality);
         ArrayAdapter<String> adapterCity = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, addcityArr);
         city_spinner.setAdapter(adapterCity);
+        if (!City.equals("empty")){
+            city_spinner.setSelection(adapterCity.getPosition(City));
+            city_spinner.setEnabled(false);
+            city_spinner.setClickable(false);
+        }
 
         city_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -149,6 +164,14 @@ public class NewRegister extends AppCompatActivity {
         });
 
         BirthDatePicker();
+
+        String[] prefixArr = getResources().getStringArray(R.array.prefix);
+        ArrayAdapter<String> adapterPrefix = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, prefixArr);
+        add_prefix_spinner.setAdapter(adapterPrefix);
+
+        String[] extensionArr = getResources().getStringArray(R.array.email_extension);
+        ArrayAdapter<String> adapterExtension = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, extensionArr);
+        add_ext_spinner.setAdapter(adapterExtension);
 
         String[] educArr = getResources().getStringArray(R.array.Highest_education);
         ArrayAdapter<String> adapterEducation = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, educArr);
@@ -232,73 +255,83 @@ public class NewRegister extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!firstname.getText().toString().isEmpty() && !lastname.getText().toString().isEmpty()) {
+                    final String[] leaderArr = getResources().getStringArray(R.array.barangay_leader);
+                    AlertDialog.Builder setbuilder = new AlertDialog.Builder(NewRegister.this);
+                    setbuilder.setTitle("Choose Barangay or Precinct leader");
 
-                AlertDialog.Builder setbuilder = new AlertDialog.Builder(NewRegister.this);
-                setbuilder.setTitle("Enter Encoder's Name");
-                final EditText encoder = new EditText(NewRegister.this);
-                setbuilder.setView(encoder);
+                    setbuilder.setSingleChoiceItems(leaderArr, checkedItem, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int selectedItemId) {
+                            setLeader = leaderArr[selectedItemId];
+                            checkedItem = selectedItemId;
+                        }
+                    });
 
-                setbuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String encodername = encoder.getText().toString();
+                    setbuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            String encodername = setLeader;
 
-                        if (!encodername.isEmpty()) {
-                            progressDialog = new ProgressDialog(NewRegister.this);
-                            progressDialog.setMessage("Saving Data...");
+                            if (!encodername.isEmpty()) {
+                                progressDialog = new ProgressDialog(NewRegister.this);
+                                progressDialog.setMessage("Saving Data...");
 
-                            String registered = registered_spinner.getSelectedItem().toString();
-                            String votername = fullname.getText().toString();
-                            String address_submit = add_address.getText().toString();
-                            String stringBirthday = add_birthDate.getText().toString();
-                            String age_submit = add_age.getText().toString();
-                            String email_submit = add_email.getText().toString();
-                            String contentPhone = add_phonenumber.getText().toString();
-                            String high_education = add_education_spinner.getSelectedItem().toString();
-                            String annual_income = add_income_spinner.getSelectedItem().toString();
-                            String city = city_spinner.getSelectedItem().toString();
-                            String barangay = barangay_spinner.getSelectedItem().toString();
-                            String precinct = "";
-                            if (registered.equals("Yes")) {
-                                precinct = precinct_spinner.getSelectedItem().toString();
+                                String registered = registered_spinner.getSelectedItem().toString();
+                                String votername = lastname.getText().toString().toUpperCase()+", "+ firstname.getText().toString().toUpperCase();
+                                String address_submit = add_address.getText().toString();
+                                String stringBirthday = add_birthDate.getText().toString();
+                                String age_submit = add_age.getText().toString();
+                                String email_submit = add_email.getText().toString() +  add_ext_spinner.getSelectedItem().toString();
+                                String facebook_submit = add_facebook.getText().toString();
+                                String contentPhone = add_prefix_spinner.getSelectedItem().toString() + add_phonenumber.getText().toString();
+                                String high_education = add_education_spinner.getSelectedItem().toString();
+                                String annual_income = add_income_spinner.getSelectedItem().toString();
+                                String city = city_spinner.getSelectedItem().toString();
+                                String barangay = barangay_spinner.getSelectedItem().toString();
+                                String precinct = "";
+                                if (registered.equals("Yes")) {
+                                    precinct = precinct_spinner.getSelectedItem().toString();
+                                }
+
+                                String indicator_on_off = "off";
+                                String deceased_yes_no = "no";
+
+                                if (votername.isEmpty() || city.isEmpty() || barangay.isEmpty()) {
+                                    Toast.makeText(getApplicationContext(), "Please fill-up some questions", Toast.LENGTH_LONG).show();
+                                } else {
+                                    progressDialog.show();
+
+                                    savingtoDatabase(registered,votername,address_submit,city,barangay,precinct,indicator_on_off, deceased_yes_no, encodername,
+                                            contentPhone,stringBirthday,age_submit,email_submit,facebook_submit,high_education,annual_income);
+                                }
+
+                                dialog.dismiss();
                             }
-
-                            String indicator_on_off = "off";
-                            String deceased_yes_no = "no";
-
-                            if (votername.isEmpty() || city.isEmpty() || barangay.isEmpty()) {
-                                Toast.makeText(getApplicationContext(), "Please fill-up some questions", Toast.LENGTH_LONG).show();
-                            } else {
-                                progressDialog.show();
-
-                                savingtoDatabase(registered,votername,address_submit,city,barangay,precinct,indicator_on_off, deceased_yes_no, encodername,
-                                        contentPhone,stringBirthday,age_submit,email_submit,high_education,annual_income);
+                            else {
+                                Toast.makeText(getApplicationContext(), "Input Encoder's Name", Toast.LENGTH_LONG).show();
                             }
+                        }
+                    });
 
+                    setbuilder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // what ever you want to do with No option.
                             dialog.dismiss();
                         }
-                        else {
-                            Toast.makeText(getApplicationContext(), "Input Encoder's Name", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                    });
 
-                setbuilder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // what ever you want to do with No option.
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog setDialog = setbuilder.create();
-                setDialog.show();
-
+                    AlertDialog setDialog = setbuilder.create();
+                    setDialog.show();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Fill-Up Full Name", Toast.LENGTH_LONG).show();
+                }
             }
 
         });
     }
 
     public void savingtoDatabase(String registered,String votersname,String address,String city,String barangay,String precinct,String indicator_on_off,String deceased_yes_no,
-                                 String encodername,String contact,String birthday_save,String age_save,String email_save,String education_save,String income_save){
+                                 String encodername,String contact,String birthday_save,String age_save,String email_save,String facebook_save,String education_save,String income_save){
 
         DatabaseAccess databaseAccessSubmit = DatabaseAccess.getInstance(NewRegister.this,"voters.db");
         databaseAccessSubmit.open();
@@ -307,7 +340,7 @@ public class NewRegister extends AppCompatActivity {
 
         if(checkDuplicate == false){
             boolean submitInsert = databaseAccessSubmit.insertNewProfileData(registered,votersname,address,city,barangay,precinct,indicator_on_off,
-                    deceased_yes_no,encodername,contact, birthday_save,age_save,email_save,education_save,income_save);
+                    deceased_yes_no,encodername,contact, birthday_save,age_save,email_save,facebook_save,education_save,income_save);
 
 
             if(submitInsert == true) {
