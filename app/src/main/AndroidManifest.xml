@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/skadoosh"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ManageCoordinator"></activity>
+        <activity android:name=".ProvincialLevelGraph"></activity>
+        <activity android:name=".ManageCoordinator" />
         <activity android:name=".QuestionForm_Unreg" />
         <activity android:name=".NewRegister" />
         <activity android:name=".CollectData" />

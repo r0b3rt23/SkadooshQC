@@ -42,6 +42,15 @@ public class GraphMenu extends AppCompatActivity {
     }
 
     public void onButtonClick(View v) {
+
+        if (v.getId() == R.id.provincial_level) {
+//            if (graphLevelInfo > 3) {
+            Intent i = new Intent(GraphMenu.this, ProvincialLevelGraph.class);
+            startActivity(i);
+//            }
+//            else Toast.makeText(GraphMenu.this,"Cannot Access using the login credentials", Toast.LENGTH_LONG).show();
+        }
+
         if (v.getId() == R.id.district_level) {
 //            if (graphLevelInfo > 3) {
                 Intent i = new Intent(GraphMenu.this, DistrictLevelGraph.class);

@@ -52,22 +52,35 @@ public class GenerateGraphView extends AppCompatActivity {
     String[] legendName ={};
     int[] COLOURS ={};
     String[] governorlegendName = {"Abuy, Benilda", "Alcala, Kulit", "Dator, Serafin" ,
-                                    "Pulgar, Sony","Suarez, Danny","Villena, Ding","Undecided"};
+                                    "Pulgar, Sony","Suarez, Danny","Villena, Ding","Indefinite"};
 
-    String[] vicegovernorlegendName = {"Capina, Teodorico", "Estacio, Geoffrey", "Malite, Arcie" ,"Nantes, Sam","Undecided"};
+    String[] vicegovernorlegendName = {"Capina, Teodorico", "Estacio, Geoffrey", "Malite, Arcie" ,"Nantes, Sam","Indefinite"};
 
     String[] congressmanlegendName = {"Alcala, Procy", "Masilang, Boyet", "Seneres, Christain" ,"Suarez, Amadeo",
-                                        "Suarez, David","Undecided"};
+                                        "Suarez, David","Indefinite"};
 
-    String[] lucena_mayorlegendName = {"Alcala, Dondon", "Talaga, Mon","Undecided"};
-    String[] sariaya_mayorlegendName = {"De La Roca, Jun", "Gayeta, Marceng","Undecided"};
-    String[] candelaria_mayorlegendName = {"Boongaling, Macky", "Maliwanag, Bong","Undecided"};
-    String[] tiaong_mayorlegendName = {"Castillo, Romano", "Preza, Ramon","Undecided"};
-    String[] dolores_mayorlegendName = {"Calayag, Orlan", "Milan, Jr","Undecided"};
-    String[] sanantonio_mayorlegendName = {"Hernandez, Rodante", "Wagan, Erick","Undecided"};
+    String[] lucena_mayorlegendName = {"Alcala, Dondon", "Talaga, Mon","Indefinite"};
+    String[] sariaya_mayorlegendName = {"De La Roca, Jun", "Gayeta, Marceng","Indefinite"};
+    String[] candelaria_mayorlegendName = {"Boongaling, Macky", "Maliwanag, Bong","Indefinite"};
+    String[] tiaong_mayorlegendName = {"Castillo, Romano", "Preza, Ramon","Indefinite"};
+    String[] dolores_mayorlegendName = {"Calayag, Orlan", "Milan, Jr","Indefinite"};
+    String[] sanantonio_mayorlegendName = {"Hernandez, Rodante", "Wagan, Erick","Indefinite"};
+
+    String[] lucena_vicemayorlegendName = {"Alcantara, Joemark", "Castillo, Philip", "Talabong, Bong", "Talaga, Mike","Indefinite"};
+    String[] sariaya_vicemayorlegendName = {"De La Pena, Teody", "Tolentino, Alex", "Vendiola, Erlinda","Indefinite"};
+    String[] candelaria_vicemayorlegendName = {"Atienza, Naty", "Suayan, Ogie","Indefinite"};
+    String[] tiaong_vicemayorlegendName = {"Razon, William", "Umali, Dick","Indefinite"};
+    String[] dolores_vicemayorlegendName = {"Amat, Danny", "Mendoza, Pepay","Indefinite"};
+    String[] sanantonio_vicemayorlegendName = {"Pillerba, Alvin", "Veslino, Jay","Indefinite"};
 
     String[] bokallegendName = {"Alcala, Eming", "Alejandrino, Boyet","Casulla, Roger","Gonzales, Teddy"
                                 ,"Liwanag, Yna","Sio, Beth","Talaga, Mano","Tanada, Michael"};
+
+    String[] highest_educationName = {"Elementary level", "Elementary graduate","H/S level","H/S graduate","College level"
+                                        ,"College graduate","Post graduate"};
+
+    String[] annual_incomeName = {"(7,890 monthly or less)", "(7,891 to 15,780 monthly)","(15,781 to 31,560 monthly)","(31,561 to 78,900 monthly)"
+                                        ,"(78,901 to 118,350 monthly)","(118,351 to 157,800)","(157,801 and more)"};
 
     int[] COLOURS_GOV_CONG = { Color.parseColor("#e6194B"), Color.parseColor("#f58231"), Color.parseColor("#ffe119"),Color.parseColor("#4363d8"),
                         Color.parseColor("#3cb44b"), Color.parseColor("#911eb4"), Color.parseColor("#42d4f4"),Color.parseColor("#f032e6"),
@@ -86,6 +99,15 @@ public class GenerateGraphView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_graph_view);
 
+        DatabaseAccess databaseUserAccess = DatabaseAccess.getInstance(GenerateGraphView.this,"voters.db");
+        databaseUserAccess.open();
+        String UserAccess = databaseUserAccess.getUserAccess();
+        databaseUserAccess.close();
+        if (UserAccess.equals("skadoosh")){
+            homeButton();
+        }else {
+            homeButton2();
+        }
         backGraphViewButton();
         saveImageButton();
 
@@ -154,6 +176,28 @@ public class GenerateGraphView extends AppCompatActivity {
                 legendName = tiaong_mayorlegendName;
             }
         }
+        else if (label.equals("ViceMayor")){
+            String city_municipality = intent.getStringExtra("City");
+            COLOURS = COLOURS_MAYOR;
+            if (city_municipality.equals("Candelaria")){
+                legendName = candelaria_vicemayorlegendName;
+            }
+            else if (city_municipality.equals("Dolores")){
+                legendName = dolores_vicemayorlegendName;
+            }
+            else if (city_municipality.equals("Lucena City")){
+                legendName = lucena_vicemayorlegendName;
+            }
+            else if (city_municipality.equals("San Antonio")){
+                legendName = sanantonio_vicemayorlegendName;
+            }
+            else if (city_municipality.equals("Sariaya")){
+                legendName = sariaya_vicemayorlegendName;
+            }
+            else if (city_municipality.equals("Tiaong")){
+                legendName = tiaong_vicemayorlegendName;
+            }
+        }
         else if (label.equals("BoardMember")){
             legendName = bokallegendName;
         }
@@ -174,9 +218,23 @@ public class GenerateGraphView extends AppCompatActivity {
             insertAscending.close();
             COLOURS = COLOURS_GOV_CONG;
         }
+        else if(label.equals("Education")){
+            legendName = highest_educationName;
+            COLOURS = COLOURS_GOV_CONG;
+        }
+        else if(label.equals("Income")){
+            legendName = annual_incomeName;
+            COLOURS = COLOURS_GOV_CONG;
+        }
 
 
         TextView label_tv = (TextView) findViewById(R.id.graphlabel_tv_id);
+        if (label.equals("Education")){
+            label = "Highest Education";
+        }
+        else if(label.equals("Income")){
+            label = "Annual HH Income";
+        }
         label_tv.setText(label);
 
         barChart = (BarChart) findViewById(R.id.bargraph);
@@ -305,6 +363,34 @@ public class GenerateGraphView extends AppCompatActivity {
 //            return mFormat.format(value) + " (" + mFormat.format(mvalue) + "%" +")";
             return mFormat.format(value);
         }
+    }
+
+    private void homeButton() {
+        Button btnBack = (Button) findViewById(R.id.homebutton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(GenerateGraphView.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+
+    private void homeButton2() {
+        Button btnBack = (Button) findViewById(R.id.homebutton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(GenerateGraphView.this, Main2Activity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     public void backGraphViewButton(){

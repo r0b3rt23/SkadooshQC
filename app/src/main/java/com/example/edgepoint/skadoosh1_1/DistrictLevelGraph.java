@@ -60,6 +60,15 @@ public class DistrictLevelGraph extends AppCompatActivity {
         adapterGraph.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         graph_spinner.setAdapter(adapterGraph);
 
+        DatabaseAccess databaseUserAccess = DatabaseAccess.getInstance(DistrictLevelGraph.this,"voters.db");
+        databaseUserAccess.open();
+        String UserAccess = databaseUserAccess.getUserAccess();
+        databaseUserAccess.close();
+        if (UserAccess.equals("skadoosh")){
+            homeButton();
+        }else {
+            homeButton2();
+        }
         backGraphButton();
         generateGraph();
         generateMissingGraph();
@@ -98,7 +107,7 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 labels.add("PULGAR");
                 labels.add("SUAREZ");
                 labels.add("VILLENA");
-                labels.add("Undecided");
+                labels.add("Indefinite");
                 table_graph = "governor_graph";
                 break;
 
@@ -107,7 +116,7 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 labels.add("ESTACIO");
                 labels.add("MALITE");
                 labels.add("NANTES");
-                labels.add("Undecided");
+                labels.add("Indefinite");
                 table_graph = "vicegovernor_graph";
                 break;
 
@@ -117,7 +126,7 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 labels.add("SENERES");
                 labels.add("SUAREZ_AMADEO");
                 labels.add("SUAREZ_DAVID");
-                labels.add("Undecided");
+                labels.add("Indefinite");
                 table_graph = "congressman_graph";
                 break;
 
@@ -135,6 +144,30 @@ public class DistrictLevelGraph extends AppCompatActivity {
 
             case "PartyList":
                 table_graph = "PartyList_graph";
+                break;
+
+            case "Highest Education":
+                ListSpinner = "Education";
+                labels.add("Elementary level");
+                labels.add("Elementary graduate");
+                labels.add("High Schoool level");
+                labels.add("High Schoool graduate");
+                labels.add("College level");
+                labels.add("College graduate");
+                labels.add("Post graduate");
+                table_graph = "highest_education_graph";
+                break;
+
+            case "Annual HH Income":
+                ListSpinner = "Income";
+                labels.add("(7,890 monthly or less)");
+                labels.add("(7,891 to 15,780 monthly)");
+                labels.add("(15,781 to 31,560 monthly)");
+                labels.add("(31,561 to 78,900 monthly)");
+                labels.add("(78,901 to 118,350 monthly)");
+                labels.add("(118,351 to 157,800)");
+                labels.add("(157,801 and more)");
+                table_graph = "annual_income_graph";
                 break;
         }
 
@@ -265,7 +298,7 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 labels.add("PULGAR");
                 labels.add("SUAREZ");
                 labels.add("VILLENA");
-                labels.add("Undecided");
+                labels.add("Indefinite");
                 labels.add("");
                 mlabels.add("ABUY");
                 mlabels.add("ALCALA");
@@ -273,7 +306,7 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 mlabels.add("PULGAR");
                 mlabels.add("SUAREZ");
                 mlabels.add("VILLENA");
-                mlabels.add("Undecided");
+                mlabels.add("Indefinite");
                 mlabels.add("Missing System");
                 table_graph = "governor_Mgraph";
                 break;
@@ -283,13 +316,13 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 labels.add("ESTACIO");
                 labels.add("MALITE");
                 labels.add("NANTES");
-                labels.add("Undecided");
+                labels.add("Indefinite");
                 labels.add("");
                 mlabels.add("CAPINA");
                 mlabels.add("ESTACIO");
                 mlabels.add("MALITE");
                 mlabels.add("NANTES");
-                mlabels.add("Undecided");
+                mlabels.add("Indefinite");
                 mlabels.add("Missing System");
                 table_graph = "vicegovernor_Mgraph";
                 break;
@@ -300,14 +333,14 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 labels.add("SENERES");
                 labels.add("SUAREZ_AMADEO");
                 labels.add("SUAREZ_DAVID");
-                labels.add("Undecided");
+                labels.add("Indefinite");
                 labels.add("");
                 mlabels.add("ALCALA");
                 mlabels.add("MASILANG");
                 mlabels.add("SENERES");
                 mlabels.add("SUAREZ_AMADEO");
                 mlabels.add("SUAREZ_DAVID");
-                mlabels.add("Undecided");
+                mlabels.add("Indefinite");
                 mlabels.add("Missing System");
                 table_graph = "congressman_Mgraph";
                 break;
@@ -336,6 +369,48 @@ public class DistrictLevelGraph extends AppCompatActivity {
 
             case "PartyList":
                 table_graph = "PartyList_graph";
+                break;
+
+            case "Highest Education":
+                ListSpinner = "Education";
+                labels.add("Elementary level");
+                labels.add("Elementary graduate");
+                labels.add("High Schoool level");
+                labels.add("High Schoool graduate");
+                labels.add("College level");
+                labels.add("College graduate");
+                labels.add("Post graduate");
+                labels.add("");
+                mlabels.add("Elementary level");
+                mlabels.add("Elementary graduate");
+                mlabels.add("High Schoool level");
+                mlabels.add("High Schoool graduate");
+                mlabels.add("College level");
+                mlabels.add("College graduate");
+                mlabels.add("Post graduate");
+                mlabels.add("Missing System");
+                table_graph = "highest_education_Mgraph";
+                break;
+
+            case "Annual HH Income":
+                ListSpinner = "Income";
+                labels.add("(7,890 monthly or less)");
+                labels.add("(7,891 to 15,780 monthly)");
+                labels.add("(15,781 to 31,560 monthly)");
+                labels.add("(31,561 to 78,900 monthly)");
+                labels.add("(78,901 to 118,350 monthly)");
+                labels.add("(118,351 to 157,800)");
+                labels.add("(157,801 and more)");
+                labels.add("");
+                mlabels.add("(7,890 monthly or less)");
+                mlabels.add("(7,891 to 15,780 monthly)");
+                mlabels.add("(15,781 to 31,560 monthly)");
+                mlabels.add("(31,561 to 78,900 monthly)");
+                mlabels.add("(78,901 to 118,350 monthly)");
+                mlabels.add("(118,351 to 157,800)");
+                mlabels.add("(157,801 and more)");
+                mlabels.add("Missing System");
+                table_graph = "annual_income_Mgraph";
                 break;
         }
 
@@ -622,17 +697,6 @@ public class DistrictLevelGraph extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void backGraphButton(){
-        Button prevbutton = findViewById(R.id.backgraphbtn2);
-        prevbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-    }
-
     public boolean checkNetworkConnection()
     {
         ConnectivityManager connectivityManager= (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -775,6 +839,45 @@ public class DistrictLevelGraph extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(stringRequestLine);
+    }
+
+    private void homeButton() {
+        Button btnBack = (Button) findViewById(R.id.homebutton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DistrictLevelGraph.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+
+    private void homeButton2() {
+        Button btnBack = (Button) findViewById(R.id.homebutton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DistrictLevelGraph.this, Main2Activity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+
+    private void backGraphButton(){
+        Button prevbutton = findViewById(R.id.backgraphbtn2);
+        prevbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
 }

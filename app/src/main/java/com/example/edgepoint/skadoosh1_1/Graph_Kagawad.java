@@ -67,6 +67,15 @@ public class Graph_Kagawad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph__kagawad);
 
+        DatabaseAccess databaseUserAccess = DatabaseAccess.getInstance(Graph_Kagawad.this,"voters.db");
+        databaseUserAccess.open();
+        String UserAccess = databaseUserAccess.getUserAccess();
+        databaseUserAccess.close();
+        if (UserAccess.equals("skadoosh")){
+            homeButton();
+        }else {
+            homeButton2();
+        }
         backGraphViewButton();
         saveImageButton();
         Intent intent = getIntent();
@@ -233,6 +242,34 @@ public class Graph_Kagawad extends AppCompatActivity {
         prev2button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void homeButton() {
+        Button btnBack = (Button) findViewById(R.id.homebutton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Graph_Kagawad.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+
+    private void homeButton2() {
+        Button btnBack = (Button) findViewById(R.id.homebutton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Graph_Kagawad.this, Main2Activity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
                 finish();
             }
         });

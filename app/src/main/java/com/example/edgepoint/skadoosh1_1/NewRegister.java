@@ -289,12 +289,14 @@ public class NewRegister extends AppCompatActivity {
                                 String city = city_spinner.getSelectedItem().toString();
                                 String barangay = barangay_spinner.getSelectedItem().toString();
                                 String precinct = "";
+                                String indicator_on_off = "off";
+                                String deceased_yes_no = "no";
                                 if (registered.equals("Yes")) {
+                                    indicator_on_off = "on";
                                     precinct = precinct_spinner.getSelectedItem().toString();
                                 }
 
-                                String indicator_on_off = "off";
-                                String deceased_yes_no = "no";
+
 
                                 if (votername.isEmpty() || city.isEmpty() || barangay.isEmpty()) {
                                     Toast.makeText(getApplicationContext(), "Please fill-up some questions", Toast.LENGTH_LONG).show();
